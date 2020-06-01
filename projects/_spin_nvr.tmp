@@ -1,0 +1,138 @@
+never c0 {    /* !([] ((ganador==0))) */
+T0_init:
+	do
+	:: atomic { (! (((ganador==0)))) -> assert(!(! (((ganador==0))))) }
+	:: (1) -> goto T0_init
+	od;
+accept_all:
+	skip
+}
+never c1 {    /* !([] ((ganador!=1))) */
+T0_init:
+	do
+	:: atomic { (! (((ganador!=1)))) -> assert(!(! (((ganador!=1))))) }
+	:: (1) -> goto T0_init
+	od;
+accept_all:
+	skip
+}
+never c2 {    /* !([] ((ganador!=2))) */
+T0_init:
+	do
+	:: atomic { (! (((ganador!=2)))) -> assert(!(! (((ganador!=2))))) }
+	:: (1) -> goto T0_init
+	od;
+accept_all:
+	skip
+}
+never c3 {    /* !([] ((ganador!=3))) */
+T0_init:
+	do
+	:: atomic { (! (((ganador!=3)))) -> assert(!(! (((ganador!=3))))) }
+	:: (1) -> goto T0_init
+	od;
+accept_all:
+	skip
+}
+never c4 {    /* !([] ((! ((((elTrique[0]==1)) && ((elTrique[1]==1))) && ((elTrique[2]==1)))) || (<> ((ganador==1))))) */
+T0_init:
+	do
+	:: (! ((! ((((elTrique[0]==1)) && ((elTrique[1]==1))) && ((elTrique[2]==1))))) && ! (((ganador==1)))) -> goto accept_S4
+	:: (1) -> goto T0_init
+	od;
+accept_S4:
+	do
+	:: (! (((ganador==1)))) -> goto accept_S4
+	od;
+}
+never c5 {    /* !([] ((! ((elTrique[4]==1))) || (<> ((ganador==1))))) */
+T0_init:
+	do
+	:: (! ((! ((elTrique[4]==1)))) && ! (((ganador==1)))) -> goto accept_S4
+	:: (1) -> goto T0_init
+	od;
+accept_S4:
+	do
+	:: (! (((ganador==1)))) -> goto accept_S4
+	od;
+}
+never cg {    /* !([] ((! ((turno?[0]) && (X (! (turno?[0]))))) || (X ((! (turno?[0])) U (turno?[1]))))) */
+T0_init:
+	do
+	:: ((turno?[0])) -> goto accept_S0
+	:: (1) -> goto T0_init
+	od;
+accept_S0:
+	do
+	:: ((! (turno?[0])) && ! ((turno?[1]))) -> goto accept_S5
+	od;
+accept_S5:
+	do
+	:: (! ((turno?[1]))) -> goto accept_S5
+	:: atomic { (! ((! (turno?[0]))) && ! ((turno?[1]))) -> assert(!(! ((! (turno?[0]))) && ! ((turno?[1])))) }
+	od;
+accept_all:
+	skip
+}
+never c7 {    /* !([] ((! ((turno?[0]) && (X (! (turno?[0]))))) || (X (([] (! (turno?[0]))) || ((! (turno?[0])) U (turno?[1])))))) */
+T0_init:
+	do
+	:: ((turno?[0])) -> goto accept_S0
+	:: (1) -> goto T0_init
+	od;
+accept_S0:
+	do
+	:: ((! (turno?[0])) && ! ((turno?[1]))) -> goto T0_S15
+	od;
+accept_S12:
+	do
+	:: (! ((turno?[1]))) -> goto accept_S12
+	:: atomic { (! ((! (turno?[0]))) && ! ((turno?[1]))) -> assert(!(! ((! (turno?[0]))) && ! ((turno?[1])))) }
+	od;
+accept_S3:
+	do
+	:: atomic { (! ((! (turno?[0])))) -> assert(!(! ((! (turno?[0]))))) }
+	:: (1) -> goto T0_S3
+	od;
+T0_S15:
+	do
+	:: (! ((! (turno?[0]))) && ! ((turno?[1]))) -> goto accept_S12
+	:: atomic { (! ((! (turno?[0]))) && ! ((turno?[1]))) -> assert(!(! ((! (turno?[0]))) && ! ((turno?[1])))) }
+	:: (! ((turno?[1]))) -> goto T0_S15
+	:: (! ((! (turno?[0]))) && ! ((turno?[1]))) -> goto accept_S3
+	od;
+T0_S3:
+	do
+	:: atomic { (! ((! (turno?[0])))) -> assert(!(! ((! (turno?[0]))))) }
+	:: (1) -> goto T0_S3
+	od;
+accept_all:
+	skip
+}
+never c8 {    /* !([] ((! ((turno?[0]) && (X (! (turno?[0]))))) || (X ((! (turno?[0])) U ((turno?[1]) || ((ganador!=0))))))) */
+T0_init:
+	do
+	:: ((turno?[0])) -> goto accept_S0
+	:: (1) -> goto T0_init
+	od;
+accept_S0:
+	do
+	:: ((! (turno?[0])) && ! (((turno?[1]) || ((ganador!=0))))) -> goto accept_S5
+	od;
+accept_S5:
+	do
+	:: (! (((turno?[1]) || ((ganador!=0))))) -> goto accept_S5
+	:: atomic { (! ((! (turno?[0]))) && ! (((turno?[1]) || ((ganador!=0))))) -> assert(!(! ((! (turno?[0]))) && ! (((turno?[1]) || ((ganador!=0)))))) }
+	od;
+accept_all:
+	skip
+}
+never c9 {    /* !([] ((! ((ganador==3))) || ((jugadas==9)))) */
+T0_init:
+	do
+	:: atomic { (! (((! ((ganador==3))) || ((jugadas==9))))) -> assert(!(! (((! ((ganador==3))) || ((jugadas==9)))))) }
+	:: (1) -> goto T0_init
+	od;
+accept_all:
+	skip
+}

@@ -1,0 +1,300 @@
+  0:	proc  - (:root:) creates proc  0 (servidor)
+  0:	proc  - (:root:) creates proc  1 (elTick)
+  0:	proc  - (:root:) creates proc  2 (elTock)
+ltl c1: [] ((! (env?[tick])) || (<> ((rec?[ok,0]) || (rec?[ok,1]))))
+ltl c1_1: [] ((! (env?[tick])) || (<> (rec?[ok,0])))
+ltl c1_3: ([] (<> (env?[tick]))) && ([] (<> (env?[tock])))
+ltl cc: [] ((! (env??[tick])) || (env?[tick]))
+ltl c3: [] ((! (env?[tick])) || ((env?[tick]) U (rec?[ok,0])))
+ltl c4: [] ((! ((env?[tick]) && (X (! (env??[tick]))))) || (X ((! (env?[tick])) U (rec?[ok,0]))))
+ltl c5: [] ((! ((env?[tick]) && (X (! (env??[tick]))))) || (X (([] (! (env?[tick]))) || ((! (env?[tick])) U (rec?[ok,0])))))
+  1:	proc  2 (elTock:1) tiktok.pml:16 (state -)	[values: 1!ok,1]
+  1:	proc  2 (elTock:1) tiktok.pml:16 (state 1)	[rec!ok,1]
+		queue 1 (rec): [ok,1]
+
+  2:	proc  1 (elTick:1) tiktok.pml:12 (state -)	[values: 1!ok,0]
+  2:	proc  1 (elTick:1) tiktok.pml:12 (state 1)	[rec!ok,0]
+		queue 1 (rec): [ok,1][ok,0]
+
+  3:	proc  1 (elTick:1) tiktok.pml:14 (state 5)	[.(goto)]
+
+  4:	proc  2 (elTock:1) tiktok.pml:18 (state 5)	[.(goto)]
+
+  5:	proc  0 (servidor:1) tiktok.pml:8 (state -)	[values: 1?ok,1]
+  5:	proc  0 (servidor:1) tiktok.pml:8 (state 3)	[rec?ok,1]
+		queue 2 (env): 
+		queue 1 (rec): [ok,0]
+
+  6:	proc  0 (servidor:1) tiktok.pml:8 (state -)	[values: 2!tock]
+  6:	proc  0 (servidor:1) tiktok.pml:8 (state 4)	[env!tock]
+		queue 2 (env): [tock]
+
+  7:	proc  2 (elTock:1) tiktok.pml:17 (state -)	[values: 2?tock]
+  7:	proc  2 (elTock:1) tiktok.pml:17 (state 2)	[env?tock]
+		queue 2 (env): 
+
+  8:	proc  2 (elTock:1) tiktok.pml:17 (state -)	[values: 1!ok,1]
+  8:	proc  2 (elTock:1) tiktok.pml:17 (state 3)	[rec!ok,1]
+		queue 1 (rec): [ok,0][ok,1]
+
+  9:	proc  0 (servidor:1) tiktok.pml:10 (state 6)	[.(goto)]
+
+ 10:	proc  2 (elTock:1) tiktok.pml:18 (state 5)	[.(goto)]
+		queue 2 (env): 
+
+ 11:	proc  0 (servidor:1) tiktok.pml:7 (state -)	[values: 1?ok,0]
+ 11:	proc  0 (servidor:1) tiktok.pml:7 (state 1)	[rec?ok,0]
+		queue 2 (env): 
+		queue 1 (rec): [ok,1]
+
+ 12:	proc  0 (servidor:1) tiktok.pml:7 (state -)	[values: 2!tick]
+ 12:	proc  0 (servidor:1) tiktok.pml:7 (state 2)	[env!tick]
+		queue 2 (env): [tick]
+
+ 13:	proc  0 (servidor:1) tiktok.pml:10 (state 6)	[.(goto)]
+
+ 14:	proc  1 (elTick:1) tiktok.pml:13 (state -)	[values: 2?tick]
+ 14:	proc  1 (elTick:1) tiktok.pml:13 (state 2)	[env?tick]
+		queue 2 (env): 
+
+ 15:	proc  0 (servidor:1) tiktok.pml:8 (state -)	[values: 1?ok,1]
+ 15:	proc  0 (servidor:1) tiktok.pml:8 (state 3)	[rec?ok,1]
+		queue 1 (rec): 
+
+ 16:	proc  1 (elTick:1) tiktok.pml:13 (state -)	[values: 1!ok,0]
+ 16:	proc  1 (elTick:1) tiktok.pml:13 (state 3)	[rec!ok,0]
+		queue 1 (rec): [ok,0]
+
+ 17:	proc  1 (elTick:1) tiktok.pml:14 (state 5)	[.(goto)]
+		queue 2 (env): 
+
+ 18:	proc  0 (servidor:1) tiktok.pml:8 (state -)	[values: 2!tock]
+ 18:	proc  0 (servidor:1) tiktok.pml:8 (state 4)	[env!tock]
+		queue 2 (env): [tock]
+
+ 19:	proc  0 (servidor:1) tiktok.pml:10 (state 6)	[.(goto)]
+
+ 20:	proc  2 (elTock:1) tiktok.pml:17 (state -)	[values: 2?tock]
+ 20:	proc  2 (elTock:1) tiktok.pml:17 (state 2)	[env?tock]
+		queue 2 (env): 
+
+ 21:	proc  2 (elTock:1) tiktok.pml:17 (state -)	[values: 1!ok,1]
+ 21:	proc  2 (elTock:1) tiktok.pml:17 (state 3)	[rec!ok,1]
+		queue 1 (rec): [ok,0][ok,1]
+
+ 22:	proc  0 (servidor:1) tiktok.pml:7 (state -)	[values: 1?ok,0]
+ 22:	proc  0 (servidor:1) tiktok.pml:7 (state 1)	[rec?ok,0]
+		queue 1 (rec): [ok,1]
+
+ 23:	proc  0 (servidor:1) tiktok.pml:7 (state -)	[values: 2!tick]
+ 23:	proc  0 (servidor:1) tiktok.pml:7 (state 2)	[env!tick]
+		queue 2 (env): [tick]
+
+ 24:	proc  2 (elTock:1) tiktok.pml:18 (state 5)	[.(goto)]
+
+ 25:	proc  0 (servidor:1) tiktok.pml:10 (state 6)	[.(goto)]
+		queue 2 (env): [tick]
+
+ 26:	proc  1 (elTick:1) tiktok.pml:13 (state -)	[values: 2?tick]
+ 26:	proc  1 (elTick:1) tiktok.pml:13 (state 2)	[env?tick]
+		queue 2 (env): 
+
+ 27:	proc  1 (elTick:1) tiktok.pml:13 (state -)	[values: 1!ok,0]
+ 27:	proc  1 (elTick:1) tiktok.pml:13 (state 3)	[rec!ok,0]
+		queue 1 (rec): [ok,1][ok,0]
+
+ 28:	proc  1 (elTick:1) tiktok.pml:14 (state 5)	[.(goto)]
+
+ 29:	proc  0 (servidor:1) tiktok.pml:8 (state -)	[values: 1?ok,1]
+ 29:	proc  0 (servidor:1) tiktok.pml:8 (state 3)	[rec?ok,1]
+		queue 1 (rec): [ok,0]
+
+ 30:	proc  0 (servidor:1) tiktok.pml:8 (state -)	[values: 2!tock]
+ 30:	proc  0 (servidor:1) tiktok.pml:8 (state 4)	[env!tock]
+		queue 2 (env): [tock]
+
+ 31:	proc  0 (servidor:1) tiktok.pml:10 (state 6)	[.(goto)]
+
+ 32:	proc  0 (servidor:1) tiktok.pml:7 (state -)	[values: 1?ok,0]
+ 32:	proc  0 (servidor:1) tiktok.pml:7 (state 1)	[rec?ok,0]
+		queue 2 (env): [tock]
+		queue 1 (rec): 
+
+ 33:	proc  2 (elTock:1) tiktok.pml:17 (state -)	[values: 2?tock]
+ 33:	proc  2 (elTock:1) tiktok.pml:17 (state 2)	[env?tock]
+		queue 2 (env): 
+
+ 34:	proc  0 (servidor:1) tiktok.pml:7 (state -)	[values: 2!tick]
+ 34:	proc  0 (servidor:1) tiktok.pml:7 (state 2)	[env!tick]
+		queue 2 (env): [tick]
+
+ 35:	proc  1 (elTick:1) tiktok.pml:13 (state -)	[values: 2?tick]
+ 35:	proc  1 (elTick:1) tiktok.pml:13 (state 2)	[env?tick]
+		queue 2 (env): 
+
+ 36:	proc  1 (elTick:1) tiktok.pml:13 (state -)	[values: 1!ok,0]
+ 36:	proc  1 (elTick:1) tiktok.pml:13 (state 3)	[rec!ok,0]
+		queue 1 (rec): [ok,0]
+
+ 37:	proc  0 (servidor:1) tiktok.pml:10 (state 6)	[.(goto)]
+
+ 38:	proc  1 (elTick:1) tiktok.pml:14 (state 5)	[.(goto)]
+
+ 39:	proc  2 (elTock:1) tiktok.pml:17 (state -)	[values: 1!ok,1]
+ 39:	proc  2 (elTock:1) tiktok.pml:17 (state 3)	[rec!ok,1]
+		queue 2 (env): 
+		queue 1 (rec): [ok,0][ok,1]
+
+ 40:	proc  0 (servidor:1) tiktok.pml:7 (state -)	[values: 1?ok,0]
+ 40:	proc  0 (servidor:1) tiktok.pml:7 (state 1)	[rec?ok,0]
+		queue 1 (rec): [ok,1]
+
+ 41:	proc  2 (elTock:1) tiktok.pml:18 (state 5)	[.(goto)]
+
+ 42:	proc  0 (servidor:1) tiktok.pml:7 (state -)	[values: 2!tick]
+ 42:	proc  0 (servidor:1) tiktok.pml:7 (state 2)	[env!tick]
+		queue 2 (env): [tick]
+
+ 43:	proc  0 (servidor:1) tiktok.pml:10 (state 6)	[.(goto)]
+
+ 44:	proc  0 (servidor:1) tiktok.pml:8 (state -)	[values: 1?ok,1]
+ 44:	proc  0 (servidor:1) tiktok.pml:8 (state 3)	[rec?ok,1]
+		queue 1 (rec): 
+
+ 45:	proc  1 (elTick:1) tiktok.pml:13 (state -)	[values: 2?tick]
+ 45:	proc  1 (elTick:1) tiktok.pml:13 (state 2)	[env?tick]
+		queue 2 (env): 
+
+ 46:	proc  1 (elTick:1) tiktok.pml:13 (state -)	[values: 1!ok,0]
+ 46:	proc  1 (elTick:1) tiktok.pml:13 (state 3)	[rec!ok,0]
+		queue 1 (rec): [ok,0]
+
+ 47:	proc  1 (elTick:1) tiktok.pml:14 (state 5)	[.(goto)]
+		queue 2 (env): 
+
+ 48:	proc  0 (servidor:1) tiktok.pml:8 (state -)	[values: 2!tock]
+ 48:	proc  0 (servidor:1) tiktok.pml:8 (state 4)	[env!tock]
+		queue 2 (env): [tock]
+
+ 49:	proc  0 (servidor:1) tiktok.pml:10 (state 6)	[.(goto)]
+		queue 2 (env): [tock]
+
+ 50:	proc  2 (elTock:1) tiktok.pml:17 (state -)	[values: 2?tock]
+ 50:	proc  2 (elTock:1) tiktok.pml:17 (state 2)	[env?tock]
+		queue 2 (env): 
+
+ 51:	proc  2 (elTock:1) tiktok.pml:17 (state -)	[values: 1!ok,1]
+ 51:	proc  2 (elTock:1) tiktok.pml:17 (state 3)	[rec!ok,1]
+		queue 1 (rec): [ok,0][ok,1]
+
+ 52:	proc  2 (elTock:1) tiktok.pml:18 (state 5)	[.(goto)]
+
+ 53:	proc  0 (servidor:1) tiktok.pml:7 (state -)	[values: 1?ok,0]
+ 53:	proc  0 (servidor:1) tiktok.pml:7 (state 1)	[rec?ok,0]
+		queue 2 (env): 
+		queue 1 (rec): [ok,1]
+
+ 54:	proc  0 (servidor:1) tiktok.pml:7 (state -)	[values: 2!tick]
+ 54:	proc  0 (servidor:1) tiktok.pml:7 (state 2)	[env!tick]
+		queue 2 (env): [tick]
+
+ 55:	proc  0 (servidor:1) tiktok.pml:10 (state 6)	[.(goto)]
+
+ 56:	proc  0 (servidor:1) tiktok.pml:8 (state -)	[values: 1?ok,1]
+ 56:	proc  0 (servidor:1) tiktok.pml:8 (state 3)	[rec?ok,1]
+		queue 2 (env): [tick]
+		queue 1 (rec): 
+
+ 57:	proc  0 (servidor:1) tiktok.pml:8 (state -)	[values: 2!tock]
+ 57:	proc  0 (servidor:1) tiktok.pml:8 (state 4)	[env!tock]
+		queue 2 (env): [tick][tock]
+
+ 58:	proc  1 (elTick:1) tiktok.pml:13 (state -)	[values: 2?tick]
+ 58:	proc  1 (elTick:1) tiktok.pml:13 (state 2)	[env?tick]
+		queue 2 (env): [tock]
+
+ 59:	proc  2 (elTock:1) tiktok.pml:17 (state -)	[values: 2?tock]
+ 59:	proc  2 (elTock:1) tiktok.pml:17 (state 2)	[env?tock]
+		queue 2 (env): 
+
+ 60:	proc  0 (servidor:1) tiktok.pml:10 (state 6)	[.(goto)]
+
+ 61:	proc  1 (elTick:1) tiktok.pml:13 (state -)	[values: 1!ok,0]
+ 61:	proc  1 (elTick:1) tiktok.pml:13 (state 3)	[rec!ok,0]
+		queue 1 (rec): [ok,0]
+
+ 62:	proc  2 (elTock:1) tiktok.pml:17 (state -)	[values: 1!ok,1]
+ 62:	proc  2 (elTock:1) tiktok.pml:17 (state 3)	[rec!ok,1]
+		queue 1 (rec): [ok,0][ok,1]
+
+ 63:	proc  0 (servidor:1) tiktok.pml:7 (state -)	[values: 1?ok,0]
+ 63:	proc  0 (servidor:1) tiktok.pml:7 (state 1)	[rec?ok,0]
+		queue 1 (rec): [ok,1]
+
+ 64:	proc  2 (elTock:1) tiktok.pml:18 (state 5)	[.(goto)]
+
+ 65:	proc  0 (servidor:1) tiktok.pml:7 (state -)	[values: 2!tick]
+ 65:	proc  0 (servidor:1) tiktok.pml:7 (state 2)	[env!tick]
+		queue 2 (env): [tick]
+
+ 66:	proc  1 (elTick:1) tiktok.pml:14 (state 5)	[.(goto)]
+
+ 67:	proc  1 (elTick:1) tiktok.pml:13 (state -)	[values: 2?tick]
+ 67:	proc  1 (elTick:1) tiktok.pml:13 (state 2)	[env?tick]
+		queue 2 (env): 
+
+ 68:	proc  1 (elTick:1) tiktok.pml:13 (state -)	[values: 1!ok,0]
+ 68:	proc  1 (elTick:1) tiktok.pml:13 (state 3)	[rec!ok,0]
+		queue 2 (env): 
+		queue 1 (rec): [ok,1][ok,0]
+
+ 69:	proc  1 (elTick:1) tiktok.pml:14 (state 5)	[.(goto)]
+
+ 70:	proc  0 (servidor:1) tiktok.pml:10 (state 6)	[.(goto)]
+		queue 2 (env): 
+
+ 71:	proc  0 (servidor:1) tiktok.pml:8 (state -)	[values: 1?ok,1]
+ 71:	proc  0 (servidor:1) tiktok.pml:8 (state 3)	[rec?ok,1]
+		queue 1 (rec): [ok,0]
+
+ 72:	proc  0 (servidor:1) tiktok.pml:8 (state -)	[values: 2!tock]
+ 72:	proc  0 (servidor:1) tiktok.pml:8 (state 4)	[env!tock]
+		queue 2 (env): [tock]
+
+ 73:	proc  0 (servidor:1) tiktok.pml:10 (state 6)	[.(goto)]
+
+ 74:	proc  0 (servidor:1) tiktok.pml:7 (state -)	[values: 1?ok,0]
+ 74:	proc  0 (servidor:1) tiktok.pml:7 (state 1)	[rec?ok,0]
+		queue 1 (rec): 
+
+ 75:	proc  2 (elTock:1) tiktok.pml:17 (state -)	[values: 2?tock]
+ 75:	proc  2 (elTock:1) tiktok.pml:17 (state 2)	[env?tock]
+		queue 2 (env): 
+
+ 76:	proc  0 (servidor:1) tiktok.pml:7 (state -)	[values: 2!tick]
+ 76:	proc  0 (servidor:1) tiktok.pml:7 (state 2)	[env!tick]
+		queue 2 (env): [tick]
+
+ 77:	proc  2 (elTock:1) tiktok.pml:17 (state -)	[values: 1!ok,1]
+ 77:	proc  2 (elTock:1) tiktok.pml:17 (state 3)	[rec!ok,1]
+		queue 1 (rec): [ok,1]
+
+ 78:	proc  2 (elTock:1) tiktok.pml:18 (state 5)	[.(goto)]
+
+ 79:	proc  1 (elTick:1) tiktok.pml:13 (state -)	[values: 2?tick]
+ 79:	proc  1 (elTick:1) tiktok.pml:13 (state 2)	[env?tick]
+		queue 2 (env): 
+
+ 80:	proc  1 (elTick:1) tiktok.pml:13 (state -)	[values: 1!ok,0]
+ 80:	proc  1 (elTick:1) tiktok.pml:13 (state 3)	[rec!ok,0]
+		queue 1 (rec): [ok,1][ok,0]
+
+-------------
+depth-limit (-u80 steps) reached
+#processes: 3
+		queue 2 (env): 
+		queue 1 (rec): [ok,1][ok,0]
+ 80:	proc  2 (elTock:1) tiktok.pml:17 (state 4)
+ 80:	proc  1 (elTick:1) tiktok.pml:14 (state 5)
+ 80:	proc  0 (servidor:1) tiktok.pml:10 (state 6)
+3 processes created

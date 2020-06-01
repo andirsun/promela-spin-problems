@@ -1,0 +1,119 @@
+never c1 {    /* !([] ((! (env?[tick])) || (<> ((rec?[ok,0]) || (rec?[ok,1]))))) */
+T0_init:
+	do
+	:: (! ((! (env?[tick]))) && ! (((rec?[ok,0]) || (rec?[ok,1])))) -> goto accept_S4
+	:: (1) -> goto T0_init
+	od;
+accept_S4:
+	do
+	:: (! (((rec?[ok,0]) || (rec?[ok,1])))) -> goto accept_S4
+	od;
+}
+never c1_1 {    /* !([] ((! (env?[tick])) || (<> (rec?[ok,0])))) */
+T0_init:
+	do
+	:: (! ((! (env?[tick]))) && ! ((rec?[ok,0]))) -> goto accept_S4
+	:: (1) -> goto T0_init
+	od;
+accept_S4:
+	do
+	:: (! ((rec?[ok,0]))) -> goto accept_S4
+	od;
+}
+never c1_3 {    /* !(([] (<> (env?[tick]))) && ([] (<> (env?[tock])))) */
+T0_init:
+	do
+	:: (! ((env?[tock]))) -> goto accept_S5
+	:: (! ((env?[tick]))) -> goto accept_S10
+	:: (1) -> goto T0_init
+	od;
+accept_S5:
+	do
+	:: (! ((env?[tock]))) -> goto accept_S5
+	od;
+accept_S10:
+	do
+	:: (! ((env?[tick]))) -> goto accept_S10
+	od;
+}
+never cc {    /* !([] ((! (env??[tick])) || (env?[tick]))) */
+T0_init:
+	do
+	:: atomic { (! (((! (env??[tick])) || (env?[tick])))) -> assert(!(! (((! (env??[tick])) || (env?[tick]))))) }
+	:: (1) -> goto T0_init
+	od;
+accept_all:
+	skip
+}
+never c3 {    /* !([] ((! (env?[tick])) || ((env?[tick]) U (rec?[ok,0])))) */
+T0_init:
+	do
+	:: (! ((! (env?[tick]))) && ! ((rec?[ok,0]))) -> goto accept_S4
+	:: atomic { (! ((! (env?[tick]))) && ! ((env?[tick])) && ! ((rec?[ok,0]))) -> assert(!(! ((! (env?[tick]))) && ! ((env?[tick])) && ! ((rec?[ok,0])))) }
+	:: (1) -> goto T0_init
+	od;
+accept_S4:
+	do
+	:: (! ((rec?[ok,0]))) -> goto accept_S4
+	:: atomic { (! ((env?[tick])) && ! ((rec?[ok,0]))) -> assert(!(! ((env?[tick])) && ! ((rec?[ok,0])))) }
+	od;
+accept_all:
+	skip
+}
+never c4 {    /* !([] ((! ((env?[tick]) && (X (! (env??[tick]))))) || (X ((! (env?[tick])) U (rec?[ok,0]))))) */
+T0_init:
+	do
+	:: ((env?[tick])) -> goto accept_S0
+	:: (1) -> goto T0_init
+	od;
+accept_S0:
+	do
+	:: ((! (env??[tick])) && ! ((rec?[ok,0]))) -> goto accept_S5
+	:: atomic { ((! (env??[tick])) && ! ((! (env?[tick]))) && ! ((rec?[ok,0]))) -> assert(!((! (env??[tick])) && ! ((! (env?[tick]))) && ! ((rec?[ok,0])))) }
+	od;
+accept_S5:
+	do
+	:: (! ((rec?[ok,0]))) -> goto accept_S5
+	:: atomic { (! ((! (env?[tick]))) && ! ((rec?[ok,0]))) -> assert(!(! ((! (env?[tick]))) && ! ((rec?[ok,0])))) }
+	od;
+accept_all:
+	skip
+}
+never c5 {    /* !([] ((! ((env?[tick]) && (X (! (env??[tick]))))) || (X (([] (! (env?[tick]))) || ((! (env?[tick])) U (rec?[ok,0])))))) */
+T0_init:
+	do
+	:: ((env?[tick])) -> goto accept_S0
+	:: (1) -> goto T0_init
+	od;
+accept_S0:
+	do
+	:: ((! (env??[tick])) && ! ((! (env?[tick]))) && ! ((rec?[ok,0]))) -> goto accept_S12
+	:: atomic { ((! (env??[tick])) && ! ((! (env?[tick]))) && ! ((rec?[ok,0]))) -> assert(!((! (env??[tick])) && ! ((! (env?[tick]))) && ! ((rec?[ok,0])))) }
+	:: ((! (env??[tick])) && ! ((rec?[ok,0]))) -> goto T0_S15
+	:: ((! (env??[tick])) && ! ((! (env?[tick]))) && ! ((rec?[ok,0]))) -> goto T0_S3
+	od;
+accept_S12:
+	do
+	:: (! ((rec?[ok,0]))) -> goto accept_S12
+	:: atomic { (! ((! (env?[tick]))) && ! ((rec?[ok,0]))) -> assert(!(! ((! (env?[tick]))) && ! ((rec?[ok,0])))) }
+	od;
+accept_S3:
+	do
+	:: atomic { (! ((! (env?[tick])))) -> assert(!(! ((! (env?[tick]))))) }
+	:: (1) -> goto T0_S3
+	od;
+T0_S15:
+	do
+	:: (! ((! (env?[tick]))) && ! ((rec?[ok,0]))) -> goto accept_S12
+	:: atomic { (! ((! (env?[tick]))) && ! ((rec?[ok,0]))) -> assert(!(! ((! (env?[tick]))) && ! ((rec?[ok,0])))) }
+	:: (! ((rec?[ok,0]))) -> goto T0_S15
+	:: (! ((! (env?[tick]))) && ! ((rec?[ok,0]))) -> goto accept_S3
+	od;
+T0_S3:
+	do
+	:: atomic { (! ((! (env?[tick])))) -> assert(!(! ((! (env?[tick]))))) }
+	:: (1) -> goto T0_S3
+	od;
+accept_all:
+	skip
+}
