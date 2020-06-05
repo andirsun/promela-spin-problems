@@ -1,0 +1,344 @@
+  0:	proc  - (:root:) creates proc  0 (enviar)
+  0:	proc  - (:root:) creates proc  1 (recibir)
+  0:	proc  - (:root:) creates proc  2 (caido)
+  0:	proc  - (:root:) creates proc  3 (reintento)
+ltl c1: [] ((! (en?[envio,0])) || (<> (cn?[confirme,0])))
+timeout
+  1:	proc  3 (reintento:1) CanalConFallas.pml:57 (state 1)	[(timeout)]
+		queue 1 (en): 
+		queue 2 (cn): 
+
+  2:	proc  3 (reintento:1) CanalConFallas.pml:57 (state 2)	[trate!deNuevo]
+  2:	proc  0 (enviar:1) CanalConFallas.pml:22 (state 4)	[trate?deNuevo]
+  2:	proc  3 (reintento:1) CanalConFallas.pml:57 (state -)	[values: 3!deNuevo]
+  2:	proc  0 (enviar:1) CanalConFallas.pml:22 (state -)	[values: 3?deNuevo]
+		queue 1 (en): 
+
+  3:	proc  0 (enviar:1) CanalConFallas.pml:23 (state -)	[values: 1!envio,0]
+  3:	proc  0 (enviar:1) CanalConFallas.pml:23 (state 5)	[en!envio,m]
+		queue 1 (en): [envio,0]
+
+  4:	proc  0 (enviar:1) CanalConFallas.pml:25 (state 7)	[.(goto)]
+
+  5:	proc  2 (caido:1) CanalConFallas.pml:44 (state -)	[values: 1?envio,0]
+  5:	proc  2 (caido:1) CanalConFallas.pml:44 (state 1)	[en?envio,_]
+		queue 1 (en): 
+
+  6:	proc  2 (caido:1) CanalConFallas.pml:46 (state 3)	[.(goto)]
+		queue 1 (en): 
+
+timeout
+  7:	proc  3 (reintento:1) CanalConFallas.pml:57 (state 1)	[(timeout)]
+		queue 1 (en): 
+		queue 2 (cn): 
+
+  8:	proc  3 (reintento:1) CanalConFallas.pml:57 (state 2)	[trate!deNuevo]
+  8:	proc  0 (enviar:1) CanalConFallas.pml:22 (state 4)	[trate?deNuevo]
+  8:	proc  3 (reintento:1) CanalConFallas.pml:57 (state -)	[values: 3!deNuevo]
+  8:	proc  0 (enviar:1) CanalConFallas.pml:22 (state -)	[values: 3?deNuevo]
+		queue 1 (en): 
+		queue 2 (cn): 
+
+  9:	proc  0 (enviar:1) CanalConFallas.pml:23 (state -)	[values: 1!envio,0]
+  9:	proc  0 (enviar:1) CanalConFallas.pml:23 (state 5)	[en!envio,m]
+		queue 1 (en): [envio,0]
+
+ 10:	proc  0 (enviar:1) CanalConFallas.pml:25 (state 7)	[.(goto)]
+
+ 11:	proc  2 (caido:1) CanalConFallas.pml:44 (state -)	[values: 1?envio,0]
+ 11:	proc  2 (caido:1) CanalConFallas.pml:44 (state 1)	[en?envio,_]
+		queue 1 (en): 
+		queue 2 (cn): 
+
+ 12:	proc  2 (caido:1) CanalConFallas.pml:46 (state 3)	[.(goto)]
+		queue 1 (en): 
+		queue 2 (cn): 
+
+timeout
+ 13:	proc  3 (reintento:1) CanalConFallas.pml:57 (state 1)	[(timeout)]
+		queue 1 (en): 
+		queue 2 (cn): 
+
+ 14:	proc  3 (reintento:1) CanalConFallas.pml:57 (state 2)	[trate!deNuevo]
+ 14:	proc  0 (enviar:1) CanalConFallas.pml:22 (state 4)	[trate?deNuevo]
+ 14:	proc  3 (reintento:1) CanalConFallas.pml:57 (state -)	[values: 3!deNuevo]
+ 14:	proc  0 (enviar:1) CanalConFallas.pml:22 (state -)	[values: 3?deNuevo]
+		queue 1 (en): 
+		queue 2 (cn): 
+
+ 15:	proc  0 (enviar:1) CanalConFallas.pml:23 (state -)	[values: 1!envio,0]
+ 15:	proc  0 (enviar:1) CanalConFallas.pml:23 (state 5)	[en!envio,m]
+		queue 1 (en): [envio,0]
+
+ 16:	proc  1 (recibir:1) CanalConFallas.pml:30 (state -)	[values: 1?envio,0]
+ 16:	proc  1 (recibir:1) CanalConFallas.pml:30 (state 1)	[en?envio,r]
+		queue 1 (en): 
+		recibir(1):r = 0
+
+ 17:	proc  0 (enviar:1) CanalConFallas.pml:25 (state 7)	[.(goto)]
+		queue 1 (en): 
+
+ 18:	proc  1 (recibir:1) CanalConFallas.pml:31 (state -)	[values: 2!confirme,0]
+ 18:	proc  1 (recibir:1) CanalConFallas.pml:31 (state 2)	[cn!confirme,r]
+		queue 1 (en): 
+		queue 2 (cn): [confirme,0]
+
+ 19:	proc  1 (recibir:1) CanalConFallas.pml:33 (state 4)	[.(goto)]
+
+ 20:	proc  0 (enviar:1) CanalConFallas.pml:13 (state -)	[values: 2?confirme,0]
+ 20:	proc  0 (enviar:1) CanalConFallas.pml:13 (state 1)	[cn?confirme,m]
+		queue 1 (en): 
+		queue 2 (cn): 
+		enviar(0):m = 0
+
+ 21:	proc  0 (enviar:1) CanalConFallas.pml:14 (state 2)	[m = ((m+1)%20)]
+		enviar(0):m = 1
+
+ 22:	proc  0 (enviar:1) CanalConFallas.pml:15 (state -)	[values: 1!envio,1]
+ 22:	proc  0 (enviar:1) CanalConFallas.pml:15 (state 3)	[en!envio,m]
+		queue 1 (en): [envio,1]
+
+ 23:	proc  2 (caido:1) CanalConFallas.pml:44 (state -)	[values: 1?envio,1]
+ 23:	proc  2 (caido:1) CanalConFallas.pml:44 (state 1)	[en?envio,_]
+		queue 1 (en): 
+
+ 24:	proc  2 (caido:1) CanalConFallas.pml:46 (state 3)	[.(goto)]
+		queue 1 (en): 
+
+ 25:	proc  0 (enviar:1) CanalConFallas.pml:25 (state 7)	[.(goto)]
+
+timeout
+ 26:	proc  3 (reintento:1) CanalConFallas.pml:57 (state 1)	[(timeout)]
+		queue 1 (en): 
+		queue 2 (cn): 
+
+ 27:	proc  3 (reintento:1) CanalConFallas.pml:57 (state 2)	[trate!deNuevo]
+ 27:	proc  0 (enviar:1) CanalConFallas.pml:22 (state 4)	[trate?deNuevo]
+ 27:	proc  3 (reintento:1) CanalConFallas.pml:57 (state -)	[values: 3!deNuevo]
+ 27:	proc  0 (enviar:1) CanalConFallas.pml:22 (state -)	[values: 3?deNuevo]
+		queue 1 (en): 
+		queue 2 (cn): 
+
+ 28:	proc  0 (enviar:1) CanalConFallas.pml:23 (state -)	[values: 1!envio,1]
+ 28:	proc  0 (enviar:1) CanalConFallas.pml:23 (state 5)	[en!envio,m]
+		queue 1 (en): [envio,1]
+
+ 29:	proc  1 (recibir:1) CanalConFallas.pml:30 (state -)	[values: 1?envio,1]
+ 29:	proc  1 (recibir:1) CanalConFallas.pml:30 (state 1)	[en?envio,r]
+		queue 1 (en): 
+		recibir(1):r = 1
+
+ 30:	proc  1 (recibir:1) CanalConFallas.pml:31 (state -)	[values: 2!confirme,1]
+ 30:	proc  1 (recibir:1) CanalConFallas.pml:31 (state 2)	[cn!confirme,r]
+		queue 2 (cn): [confirme,1]
+
+ 31:	proc  0 (enviar:1) CanalConFallas.pml:25 (state 7)	[.(goto)]
+
+ 32:	proc  1 (recibir:1) CanalConFallas.pml:33 (state 4)	[.(goto)]
+		queue 1 (en): 
+
+ 33:	proc  0 (enviar:1) CanalConFallas.pml:13 (state -)	[values: 2?confirme,1]
+ 33:	proc  0 (enviar:1) CanalConFallas.pml:13 (state 1)	[cn?confirme,m]
+		queue 1 (en): 
+		queue 2 (cn): 
+		enviar(0):m = 1
+
+ 34:	proc  0 (enviar:1) CanalConFallas.pml:14 (state 2)	[m = ((m+1)%20)]
+		queue 1 (en): 
+		enviar(0):m = 2
+
+ 35:	proc  0 (enviar:1) CanalConFallas.pml:15 (state -)	[values: 1!envio,2]
+ 35:	proc  0 (enviar:1) CanalConFallas.pml:15 (state 3)	[en!envio,m]
+		queue 1 (en): [envio,2]
+
+ 36:	proc  1 (recibir:1) CanalConFallas.pml:30 (state -)	[values: 1?envio,2]
+ 36:	proc  1 (recibir:1) CanalConFallas.pml:30 (state 1)	[en?envio,r]
+		queue 1 (en): 
+		recibir(1):r = 2
+
+ 37:	proc  0 (enviar:1) CanalConFallas.pml:25 (state 7)	[.(goto)]
+		queue 1 (en): 
+
+ 38:	proc  1 (recibir:1) CanalConFallas.pml:31 (state -)	[values: 2!confirme,2]
+ 38:	proc  1 (recibir:1) CanalConFallas.pml:31 (state 2)	[cn!confirme,r]
+		queue 1 (en): 
+		queue 2 (cn): [confirme,2]
+
+ 39:	proc  1 (recibir:1) CanalConFallas.pml:33 (state 4)	[.(goto)]
+		queue 1 (en): 
+
+ 40:	proc  0 (enviar:1) CanalConFallas.pml:13 (state -)	[values: 2?confirme,2]
+ 40:	proc  0 (enviar:1) CanalConFallas.pml:13 (state 1)	[cn?confirme,m]
+		queue 1 (en): 
+		queue 2 (cn): 
+		enviar(0):m = 2
+
+ 41:	proc  0 (enviar:1) CanalConFallas.pml:14 (state 2)	[m = ((m+1)%20)]
+		enviar(0):m = 3
+
+ 42:	proc  0 (enviar:1) CanalConFallas.pml:15 (state -)	[values: 1!envio,3]
+ 42:	proc  0 (enviar:1) CanalConFallas.pml:15 (state 3)	[en!envio,m]
+		queue 1 (en): [envio,3]
+
+ 43:	proc  0 (enviar:1) CanalConFallas.pml:25 (state 7)	[.(goto)]
+
+ 44:	proc  1 (recibir:1) CanalConFallas.pml:30 (state -)	[values: 1?envio,3]
+ 44:	proc  1 (recibir:1) CanalConFallas.pml:30 (state 1)	[en?envio,r]
+		queue 1 (en): 
+		recibir(1):r = 3
+
+ 45:	proc  1 (recibir:1) CanalConFallas.pml:31 (state -)	[values: 2!confirme,3]
+ 45:	proc  1 (recibir:1) CanalConFallas.pml:31 (state 2)	[cn!confirme,r]
+		queue 1 (en): 
+		queue 2 (cn): [confirme,3]
+
+ 46:	proc  1 (recibir:1) CanalConFallas.pml:33 (state 4)	[.(goto)]
+		queue 1 (en): 
+
+ 47:	proc  0 (enviar:1) CanalConFallas.pml:13 (state -)	[values: 2?confirme,3]
+ 47:	proc  0 (enviar:1) CanalConFallas.pml:13 (state 1)	[cn?confirme,m]
+		queue 1 (en): 
+		queue 2 (cn): 
+		enviar(0):m = 3
+
+ 48:	proc  0 (enviar:1) CanalConFallas.pml:14 (state 2)	[m = ((m+1)%20)]
+		enviar(0):m = 4
+
+ 49:	proc  0 (enviar:1) CanalConFallas.pml:15 (state -)	[values: 1!envio,4]
+ 49:	proc  0 (enviar:1) CanalConFallas.pml:15 (state 3)	[en!envio,m]
+		queue 1 (en): [envio,4]
+
+ 50:	proc  2 (caido:1) CanalConFallas.pml:44 (state -)	[values: 1?envio,4]
+ 50:	proc  2 (caido:1) CanalConFallas.pml:44 (state 1)	[en?envio,_]
+		queue 1 (en): 
+
+ 51:	proc  2 (caido:1) CanalConFallas.pml:46 (state 3)	[.(goto)]
+
+ 52:	proc  0 (enviar:1) CanalConFallas.pml:25 (state 7)	[.(goto)]
+		queue 1 (en): 
+
+timeout
+ 53:	proc  3 (reintento:1) CanalConFallas.pml:57 (state 1)	[(timeout)]
+		queue 1 (en): 
+		queue 2 (cn): 
+
+ 54:	proc  3 (reintento:1) CanalConFallas.pml:57 (state 2)	[trate!deNuevo]
+ 54:	proc  0 (enviar:1) CanalConFallas.pml:22 (state 4)	[trate?deNuevo]
+ 54:	proc  3 (reintento:1) CanalConFallas.pml:57 (state -)	[values: 3!deNuevo]
+ 54:	proc  0 (enviar:1) CanalConFallas.pml:22 (state -)	[values: 3?deNuevo]
+		queue 1 (en): 
+
+ 55:	proc  0 (enviar:1) CanalConFallas.pml:23 (state -)	[values: 1!envio,4]
+ 55:	proc  0 (enviar:1) CanalConFallas.pml:23 (state 5)	[en!envio,m]
+		queue 1 (en): [envio,4]
+
+ 56:	proc  1 (recibir:1) CanalConFallas.pml:30 (state -)	[values: 1?envio,4]
+ 56:	proc  1 (recibir:1) CanalConFallas.pml:30 (state 1)	[en?envio,r]
+		queue 1 (en): 
+		recibir(1):r = 4
+
+ 57:	proc  1 (recibir:1) CanalConFallas.pml:31 (state -)	[values: 2!confirme,4]
+ 57:	proc  1 (recibir:1) CanalConFallas.pml:31 (state 2)	[cn!confirme,r]
+		queue 2 (cn): [confirme,4]
+
+ 58:	proc  1 (recibir:1) CanalConFallas.pml:33 (state 4)	[.(goto)]
+
+ 59:	proc  0 (enviar:1) CanalConFallas.pml:25 (state 7)	[.(goto)]
+
+ 60:	proc  0 (enviar:1) CanalConFallas.pml:13 (state -)	[values: 2?confirme,4]
+ 60:	proc  0 (enviar:1) CanalConFallas.pml:13 (state 1)	[cn?confirme,m]
+		queue 1 (en): 
+		queue 2 (cn): 
+		enviar(0):m = 4
+
+ 61:	proc  0 (enviar:1) CanalConFallas.pml:14 (state 2)	[m = ((m+1)%20)]
+		queue 1 (en): 
+		enviar(0):m = 5
+
+ 62:	proc  0 (enviar:1) CanalConFallas.pml:15 (state -)	[values: 1!envio,5]
+ 62:	proc  0 (enviar:1) CanalConFallas.pml:15 (state 3)	[en!envio,m]
+		queue 1 (en): [envio,5]
+
+ 63:	proc  0 (enviar:1) CanalConFallas.pml:25 (state 7)	[.(goto)]
+
+ 64:	proc  1 (recibir:1) CanalConFallas.pml:30 (state -)	[values: 1?envio,5]
+ 64:	proc  1 (recibir:1) CanalConFallas.pml:30 (state 1)	[en?envio,r]
+		queue 1 (en): 
+		recibir(1):r = 5
+
+ 65:	proc  1 (recibir:1) CanalConFallas.pml:31 (state -)	[values: 2!confirme,5]
+ 65:	proc  1 (recibir:1) CanalConFallas.pml:31 (state 2)	[cn!confirme,r]
+		queue 1 (en): 
+		queue 2 (cn): [confirme,5]
+
+ 66:	proc  0 (enviar:1) CanalConFallas.pml:13 (state -)	[values: 2?confirme,5]
+ 66:	proc  0 (enviar:1) CanalConFallas.pml:13 (state 1)	[cn?confirme,m]
+		queue 2 (cn): 
+		enviar(0):m = 5
+
+ 67:	proc  1 (recibir:1) CanalConFallas.pml:33 (state 4)	[.(goto)]
+
+ 68:	proc  0 (enviar:1) CanalConFallas.pml:14 (state 2)	[m = ((m+1)%20)]
+		queue 1 (en): 
+		enviar(0):m = 6
+
+ 69:	proc  0 (enviar:1) CanalConFallas.pml:15 (state -)	[values: 1!envio,6]
+ 69:	proc  0 (enviar:1) CanalConFallas.pml:15 (state 3)	[en!envio,m]
+		queue 1 (en): [envio,6]
+
+ 70:	proc  1 (recibir:1) CanalConFallas.pml:30 (state -)	[values: 1?envio,6]
+ 70:	proc  1 (recibir:1) CanalConFallas.pml:30 (state 1)	[en?envio,r]
+		queue 1 (en): 
+		recibir(1):r = 6
+
+ 71:	proc  1 (recibir:1) CanalConFallas.pml:31 (state -)	[values: 2!confirme,6]
+ 71:	proc  1 (recibir:1) CanalConFallas.pml:31 (state 2)	[cn!confirme,r]
+		queue 2 (cn): [confirme,6]
+
+ 72:	proc  1 (recibir:1) CanalConFallas.pml:33 (state 4)	[.(goto)]
+		queue 1 (en): 
+
+ 73:	proc  0 (enviar:1) CanalConFallas.pml:25 (state 7)	[.(goto)]
+		queue 1 (en): 
+
+ 74:	proc  0 (enviar:1) CanalConFallas.pml:13 (state -)	[values: 2?confirme,6]
+ 74:	proc  0 (enviar:1) CanalConFallas.pml:13 (state 1)	[cn?confirme,m]
+		queue 1 (en): 
+		queue 2 (cn): 
+		enviar(0):m = 6
+
+ 75:	proc  0 (enviar:1) CanalConFallas.pml:14 (state 2)	[m = ((m+1)%20)]
+		enviar(0):m = 7
+
+ 76:	proc  0 (enviar:1) CanalConFallas.pml:15 (state -)	[values: 1!envio,7]
+ 76:	proc  0 (enviar:1) CanalConFallas.pml:15 (state 3)	[en!envio,m]
+		queue 1 (en): [envio,7]
+
+ 77:	proc  0 (enviar:1) CanalConFallas.pml:25 (state 7)	[.(goto)]
+
+ 78:	proc  1 (recibir:1) CanalConFallas.pml:30 (state -)	[values: 1?envio,7]
+ 78:	proc  1 (recibir:1) CanalConFallas.pml:30 (state 1)	[en?envio,r]
+		queue 1 (en): 
+		recibir(1):r = 7
+
+ 79:	proc  1 (recibir:1) CanalConFallas.pml:31 (state -)	[values: 2!confirme,7]
+ 79:	proc  1 (recibir:1) CanalConFallas.pml:31 (state 2)	[cn!confirme,r]
+		queue 1 (en): 
+		queue 2 (cn): [confirme,7]
+
+ 80:	proc  0 (enviar:1) CanalConFallas.pml:13 (state -)	[values: 2?confirme,7]
+ 80:	proc  0 (enviar:1) CanalConFallas.pml:13 (state 1)	[cn?confirme,m]
+		queue 2 (cn): 
+		enviar(0):m = 7
+
+-------------
+depth-limit (-u80 steps) reached
+#processes: 4
+		queue 1 (en): 
+		queue 2 (cn): 
+ 80:	proc  3 (reintento:1) CanalConFallas.pml:50 (state 3)
+ 80:	proc  2 (caido:1) CanalConFallas.pml:37 (state 2)
+ 80:	proc  1 (recibir:1) CanalConFallas.pml:33 (state 4)
+ 80:	proc  0 (enviar:1) CanalConFallas.pml:14 (state 2)
+		enviar(0):m = 7
+4 processes created

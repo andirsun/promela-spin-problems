@@ -1,0 +1,11 @@
+never c1 {    /* !([] ((! (en?[envio,0])) || (<> (cn?[confirme,0])))) */
+T0_init:
+	do
+	:: (! ((! (en?[envio,0]))) && ! ((cn?[confirme,0]))) -> goto accept_S4
+	:: (1) -> goto T0_init
+	od;
+accept_S4:
+	do
+	:: (! ((cn?[confirme,0]))) -> goto accept_S4
+	od;
+}

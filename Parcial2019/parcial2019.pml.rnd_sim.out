@@ -1,0 +1,317 @@
+  0:	proc  - (:root:) creates proc  0 (productor)
+  0:	proc  - (:root:) creates proc  1 (consumidor)
+  0:	proc  - (:root:) creates proc  2 (consumidor)
+  1:	proc  2 (consumidor:1) parcial2019.pml:38 (state -)	[values: 1!okspin: parcial2019.pml:38, Error: value (2->0 (1)) truncated in assignment
+,2]
+  1:	proc  2 (consumidor:1) parcial2019.pml:38 (state 1)	[rec!ok,_pid]
+		queue 1 (rec): [ok,0]
+
+  2:	proc  2 (consumidor:1) parcial2019.pml:45 (state 6)	[.(goto)]
+
+  3:	proc  1 (consumidor:1) parcial2019.pml:38 (state -)	[values: 1!ok,1]
+  3:	proc  1 (consumidor:1) parcial2019.pml:38 (state 1)	[rec!ok,_pid]
+		queue 1 (rec): [ok,0][ok,1]
+
+  4:	proc  0 (productor:1) parcial2019.pml:19 (state -)	[values: 1?ok,0]
+  4:	proc  0 (productor:1) parcial2019.pml:19 (state 1)	[rec?ok,consumerId]
+		queue 2 (env): 
+		queue 1 (rec): [ok,1]
+		productor(0):consumerId = 0
+
+  5:	proc  0 (productor:1) parcial2019.pml:20 (state 2)	[m = (m+1)]
+		productor(0):m = 1
+
+  6:	proc  1 (consumidor:1) parcial2019.pml:45 (state 6)	[.(goto)]
+
+  7:	proc  0 (productor:1) parcial2019.pml:21 (state -)	[values: 2!ok,0]
+  7:	proc  0 (productor:1) parcial2019.pml:21 (state 3)	[env!m,consumerId]
+		queue 2 (env): [ok,0]
+
+  8:	proc  1 (consumidor:1) parcial2019.pml:41 (state -)	[values: 2?ok,0]
+spin: parcial2019.pml:41, Error: illegal assignment to _pid
+  8:	proc  1 (consumidor:1) parcial2019.pml:41 (state 2)	[env?c,_pid]
+		queue 2 (env): 
+		consumidor(1):c = 1
+
+le estoy confirmando al consumidor 0  
+  9:	proc  0 (productor:1) parcial2019.pml:22 (state 4)	[printf('le estoy confirmando al consumidor %d  \\n',consumerId)]
+
+ 10:	proc  0 (productor:1) parcial2019.pml:33 (state 6)	[.(goto)]
+		queue 2 (env): 
+
+ 11:	proc  0 (productor:1) parcial2019.pml:19 (state -)	[values: 1?ok,1]
+ 11:	proc  0 (productor:1) parcial2019.pml:19 (state 1)	[rec?ok,consumerId]
+		queue 2 (env): 
+		queue 1 (rec): 
+		productor(0):consumerId = 1
+
+ 12:	proc  1 (consumidor:1) parcial2019.pml:41 (state -)	[values: 1!ok,1]
+ 12:	proc  1 (consumidor:1) parcial2019.pml:41 (state 3)	[rec!ok,_pid]
+		queue 2 (env): 
+		queue 1 (rec): [ok,1]
+
+ Soy  1 y le estoy pidiendo al prductor 
+ 13:	proc  1 (consumidor:1) parcial2019.pml:42 (state 4)	[printf(' Soy  %d y le estoy pidiendo al prductor \\n',_pid)]
+		queue 2 (env): 
+
+ 14:	proc  0 (productor:1) parcial2019.pml:20 (state 2)	[m = (m+1)]
+		productor(0):m = 2
+
+ 15:	proc  1 (consumidor:1) parcial2019.pml:45 (state 6)	[.(goto)]
+
+ 16:	proc  0 (productor:1) parcial2019.pml:21 (state -)	[values: 2!2,1]
+ 16:	proc  0 (productor:1) parcial2019.pml:21 (state 3)	[env!m,consumerId]
+		queue 2 (env): [2,1]
+
+ 17:	proc  1 (consumidor:1) parcial2019.pml:41 (state -)	[values: 2?2,1]
+spin: parcial2019.pml:41, Error: illegal assignment to _pid
+ 17:	proc  1 (consumidor:1) parcial2019.pml:41 (state 2)	[env?c,_pid]
+		queue 2 (env): 
+		consumidor(1):c = 2
+
+le estoy confirmando al consumidor 1  
+ 18:	proc  0 (productor:1) parcial2019.pml:22 (state 4)	[printf('le estoy confirmando al consumidor %d  \\n',consumerId)]
+		queue 2 (env): 
+
+ 19:	proc  1 (consumidor:1) parcial2019.pml:41 (state -)	[values: 1!ok,1]
+ 19:	proc  1 (consumidor:1) parcial2019.pml:41 (state 3)	[rec!ok,_pid]
+		queue 1 (rec): [ok,1][ok,1]
+
+ Soy  1 y le estoy pidiendo al prductor 
+ 20:	proc  1 (consumidor:1) parcial2019.pml:42 (state 4)	[printf(' Soy  %d y le estoy pidiendo al prductor \\n',_pid)]
+
+ 21:	proc  0 (productor:1) parcial2019.pml:33 (state 6)	[.(goto)]
+
+ 22:	proc  0 (productor:1) parcial2019.pml:19 (state -)	[values: 1?ok,1]
+ 22:	proc  0 (productor:1) parcial2019.pml:19 (state 1)	[rec?ok,consumerId]
+		queue 2 (env): 
+		queue 1 (rec): [ok,1]
+		productor(0):consumerId = 1
+
+ 23:	proc  1 (consumidor:1) parcial2019.pml:45 (state 6)	[.(goto)]
+
+ 24:	proc  0 (productor:1) parcial2019.pml:20 (state 2)	[m = (m+1)]
+		queue 2 (env): 
+		productor(0):m = 3
+
+ 25:	proc  0 (productor:1) parcial2019.pml:21 (state -)	[values: 2!3,1]
+ 25:	proc  0 (productor:1) parcial2019.pml:21 (state 3)	[env!m,consumerId]
+		queue 2 (env): [3,1]
+
+le estoy confirmando al consumidor 1  
+ 26:	proc  0 (productor:1) parcial2019.pml:22 (state 4)	[printf('le estoy confirmando al consumidor %d  \\n',consumerId)]
+
+ 27:	proc  2 (consumidor:1) parcial2019.pml:41 (state -)	[values: 2?3,1]
+spin: parcial2019.pml:41, Error: illegal assignment to _pid
+ 27:	proc  2 (consumidor:1) parcial2019.pml:41 (state 2)	[env?c,_pid]
+		queue 2 (env): 
+		consumidor(2):c = 3
+
+ 28:	proc  0 (productor:1) parcial2019.pml:33 (state 6)	[.(goto)]
+
+ 29:	proc  0 (productor:1) parcial2019.pml:19 (state -)	[values: 1?ok,1]
+ 29:	proc  0 (productor:1) parcial2019.pml:19 (state 1)	[rec?ok,consumerId]
+		queue 2 (env): 
+		queue 1 (rec): 
+		productor(0):consumerId = 1
+
+ 30:	proc  0 (productor:1) parcial2019.pml:20 (state 2)	[m = (m+1)]
+		queue 2 (env): 
+		productor(0):m = 4
+
+ 31:	proc  0 (productor:1) parcial2019.pml:21 (state -)	[values: 2!4,1]
+ 31:	proc  0 (productor:1) parcial2019.pml:21 (state 3)	[env!m,consumerId]
+		queue 2 (env): [4,1]
+
+ 32:	proc  1 (consumidor:1) parcial2019.pml:41 (state -)	[values: 2?4,1]
+spin: parcial2019.pml:41, Error: illegal assignment to _pid
+ 32:	proc  1 (consumidor:1) parcial2019.pml:41 (state 2)	[env?c,_pid]
+		queue 2 (env): 
+		consumidor(1):c = 4
+
+ 33:	proc  2 (consumidor:1) parcial2019.pml:41 (state -)	[values: 1!okspin: parcial2019.pml:41, Error: value (2->0 (1)) truncated in assignment
+,2]
+ 33:	proc  2 (consumidor:1) parcial2019.pml:41 (state 3)	[rec!ok,_pid]
+		queue 1 (rec): [ok,0]
+
+ Soy  2 y le estoy pidiendo al prductor 
+ 34:	proc  2 (consumidor:1) parcial2019.pml:42 (state 4)	[printf(' Soy  %d y le estoy pidiendo al prductor \\n',_pid)]
+
+ 35:	proc  1 (consumidor:1) parcial2019.pml:41 (state -)	[values: 1!ok,1]
+ 35:	proc  1 (consumidor:1) parcial2019.pml:41 (state 3)	[rec!ok,_pid]
+		queue 1 (rec): [ok,0][ok,1]
+
+ Soy  1 y le estoy pidiendo al prductor 
+ 36:	proc  1 (consumidor:1) parcial2019.pml:42 (state 4)	[printf(' Soy  %d y le estoy pidiendo al prductor \\n',_pid)]
+
+ 37:	proc  2 (consumidor:1) parcial2019.pml:45 (state 6)	[.(goto)]
+
+le estoy confirmando al consumidor 1  
+ 38:	proc  0 (productor:1) parcial2019.pml:22 (state 4)	[printf('le estoy confirmando al consumidor %d  \\n',consumerId)]
+		queue 2 (env): 
+
+ 39:	proc  0 (productor:1) parcial2019.pml:33 (state 6)	[.(goto)]
+
+ 40:	proc  0 (productor:1) parcial2019.pml:19 (state -)	[values: 1?ok,0]
+ 40:	proc  0 (productor:1) parcial2019.pml:19 (state 1)	[rec?ok,consumerId]
+		queue 2 (env): 
+		queue 1 (rec): [ok,1]
+		productor(0):consumerId = 0
+
+ 41:	proc  1 (consumidor:1) parcial2019.pml:45 (state 6)	[.(goto)]
+		queue 2 (env): 
+
+ 42:	proc  0 (productor:1) parcial2019.pml:20 (state 2)	[m = (m+1)]
+		queue 2 (env): 
+		productor(0):m = 5
+
+ 43:	proc  0 (productor:1) parcial2019.pml:21 (state -)	[values: 2!5,0]
+ 43:	proc  0 (productor:1) parcial2019.pml:21 (state 3)	[env!m,consumerId]
+		queue 2 (env): [5,0]
+
+le estoy confirmando al consumidor 0  
+ 44:	proc  0 (productor:1) parcial2019.pml:22 (state 4)	[printf('le estoy confirmando al consumidor %d  \\n',consumerId)]
+
+ 45:	proc  0 (productor:1) parcial2019.pml:33 (state 6)	[.(goto)]
+
+ 46:	proc  2 (consumidor:1) parcial2019.pml:41 (state -)	[values: 2?5,0]
+spin: parcial2019.pml:41, Error: illegal assignment to _pid
+ 46:	proc  2 (consumidor:1) parcial2019.pml:41 (state 2)	[env?c,_pid]
+		queue 2 (env): 
+		consumidor(2):c = 5
+
+ 47:	proc  0 (productor:1) parcial2019.pml:19 (state -)	[values: 1?ok,1]
+ 47:	proc  0 (productor:1) parcial2019.pml:19 (state 1)	[rec?ok,consumerId]
+		queue 1 (rec): 
+		productor(0):consumerId = 1
+
+ 48:	proc  0 (productor:1) parcial2019.pml:20 (state 2)	[m = (m+1)]
+		productor(0):m = 6
+
+ 49:	proc  2 (consumidor:1) parcial2019.pml:41 (state -)	[values: 1!okspin: parcial2019.pml:41, Error: value (2->0 (1)) truncated in assignment
+,2]
+ 49:	proc  2 (consumidor:1) parcial2019.pml:41 (state 3)	[rec!ok,_pid]
+		queue 1 (rec): [ok,0]
+
+ 50:	proc  0 (productor:1) parcial2019.pml:21 (state -)	[values: 2!6,1]
+ 50:	proc  0 (productor:1) parcial2019.pml:21 (state 3)	[env!m,consumerId]
+		queue 2 (env): [6,1]
+
+le estoy confirmando al consumidor 1  
+ 51:	proc  0 (productor:1) parcial2019.pml:22 (state 4)	[printf('le estoy confirmando al consumidor %d  \\n',consumerId)]
+
+ 52:	proc  1 (consumidor:1) parcial2019.pml:41 (state -)	[values: 2?6,1]
+spin: parcial2019.pml:41, Error: illegal assignment to _pid
+ 52:	proc  1 (consumidor:1) parcial2019.pml:41 (state 2)	[env?c,_pid]
+		queue 2 (env): 
+		consumidor(1):c = 6
+
+ 53:	proc  1 (consumidor:1) parcial2019.pml:41 (state -)	[values: 1!ok,1]
+ 53:	proc  1 (consumidor:1) parcial2019.pml:41 (state 3)	[rec!ok,_pid]
+		queue 1 (rec): [ok,0][ok,1]
+
+ Soy  2 y le estoy pidiendo al prductor 
+ 54:	proc  2 (consumidor:1) parcial2019.pml:42 (state 4)	[printf(' Soy  %d y le estoy pidiendo al prductor \\n',_pid)]
+
+ 55:	proc  0 (productor:1) parcial2019.pml:33 (state 6)	[.(goto)]
+
+ Soy  1 y le estoy pidiendo al prductor 
+ 56:	proc  1 (consumidor:1) parcial2019.pml:42 (state 4)	[printf(' Soy  %d y le estoy pidiendo al prductor \\n',_pid)]
+
+ 57:	proc  2 (consumidor:1) parcial2019.pml:45 (state 6)	[.(goto)]
+
+ 58:	proc  1 (consumidor:1) parcial2019.pml:45 (state 6)	[.(goto)]
+
+ 59:	proc  0 (productor:1) parcial2019.pml:19 (state -)	[values: 1?ok,0]
+ 59:	proc  0 (productor:1) parcial2019.pml:19 (state 1)	[rec?ok,consumerId]
+		queue 1 (rec): [ok,1]
+		productor(0):consumerId = 0
+
+ 60:	proc  0 (productor:1) parcial2019.pml:20 (state 2)	[m = (m+1)]
+		queue 2 (env): 
+		productor(0):m = 7
+
+ 61:	proc  0 (productor:1) parcial2019.pml:21 (state -)	[values: 2!7,0]
+ 61:	proc  0 (productor:1) parcial2019.pml:21 (state 3)	[env!m,consumerId]
+		queue 2 (env): [7,0]
+
+ 62:	proc  1 (consumidor:1) parcial2019.pml:41 (state -)	[values: 2?7,0]
+spin: parcial2019.pml:41, Error: illegal assignment to _pid
+ 62:	proc  1 (consumidor:1) parcial2019.pml:41 (state 2)	[env?c,_pid]
+		queue 2 (env): 
+		consumidor(1):c = 7
+
+ 63:	proc  1 (consumidor:1) parcial2019.pml:41 (state -)	[values: 1!ok,1]
+ 63:	proc  1 (consumidor:1) parcial2019.pml:41 (state 3)	[rec!ok,_pid]
+		queue 1 (rec): [ok,1][ok,1]
+
+ Soy  1 y le estoy pidiendo al prductor 
+ 64:	proc  1 (consumidor:1) parcial2019.pml:42 (state 4)	[printf(' Soy  %d y le estoy pidiendo al prductor \\n',_pid)]
+
+le estoy confirmando al consumidor 0  
+ 65:	proc  0 (productor:1) parcial2019.pml:22 (state 4)	[printf('le estoy confirmando al consumidor %d  \\n',consumerId)]
+
+ 66:	proc  1 (consumidor:1) parcial2019.pml:45 (state 6)	[.(goto)]
+
+ 67:	proc  0 (productor:1) parcial2019.pml:33 (state 6)	[.(goto)]
+
+ 68:	proc  0 (productor:1) parcial2019.pml:19 (state -)	[values: 1?ok,1]
+ 68:	proc  0 (productor:1) parcial2019.pml:19 (state 1)	[rec?ok,consumerId]
+		queue 2 (env): 
+		queue 1 (rec): [ok,1]
+		productor(0):consumerId = 1
+
+ 69:	proc  0 (productor:1) parcial2019.pml:20 (state 2)	[m = (m+1)]
+		queue 2 (env): 
+		productor(0):m = 8
+
+ 70:	proc  0 (productor:1) parcial2019.pml:21 (state -)	[values: 2!8,1]
+ 70:	proc  0 (productor:1) parcial2019.pml:21 (state 3)	[env!m,consumerId]
+		queue 2 (env): [8,1]
+
+le estoy confirmando al consumidor 1  
+ 71:	proc  0 (productor:1) parcial2019.pml:22 (state 4)	[printf('le estoy confirmando al consumidor %d  \\n',consumerId)]
+
+ 72:	proc  2 (consumidor:1) parcial2019.pml:41 (state -)	[values: 2?8,1]
+spin: parcial2019.pml:41, Error: illegal assignment to _pid
+ 72:	proc  2 (consumidor:1) parcial2019.pml:41 (state 2)	[env?c,_pid]
+		queue 2 (env): 
+		consumidor(2):c = 8
+
+ 73:	proc  2 (consumidor:1) parcial2019.pml:41 (state -)	[values: 1!okspin: parcial2019.pml:41, Error: value (2->0 (1)) truncated in assignment
+,2]
+ 73:	proc  2 (consumidor:1) parcial2019.pml:41 (state 3)	[rec!ok,_pid]
+		queue 1 (rec): [ok,1][ok,0]
+
+ Soy  2 y le estoy pidiendo al prductor 
+ 74:	proc  2 (consumidor:1) parcial2019.pml:42 (state 4)	[printf(' Soy  %d y le estoy pidiendo al prductor \\n',_pid)]
+
+ 75:	proc  0 (productor:1) parcial2019.pml:33 (state 6)	[.(goto)]
+
+ 76:	proc  2 (consumidor:1) parcial2019.pml:45 (state 6)	[.(goto)]
+
+ 77:	proc  0 (productor:1) parcial2019.pml:19 (state -)	[values: 1?ok,1]
+ 77:	proc  0 (productor:1) parcial2019.pml:19 (state 1)	[rec?ok,consumerId]
+		queue 2 (env): 
+		queue 1 (rec): [ok,0]
+		productor(0):consumerId = 1
+
+ 78:	proc  0 (productor:1) parcial2019.pml:20 (state 2)	[m = (m+1)]
+		productor(0):m = 9
+
+ 79:	proc  0 (productor:1) parcial2019.pml:21 (state -)	[values: 2!9,1]
+ 79:	proc  0 (productor:1) parcial2019.pml:21 (state 3)	[env!m,consumerId]
+		queue 2 (env): [9,1]
+
+le estoy confirmando al consumidor 1  
+ 80:	proc  0 (productor:1) parcial2019.pml:22 (state 4)	[printf('le estoy confirmando al consumidor %d  \\n',consumerId)]
+
+-------------
+depth-limit (-u80 steps) reached
+#processes: 3
+		queue 2 (env): [9,1]
+		queue 1 (rec): [ok,0]
+ 80:	proc  2 (consumidor:1) parcial2019.pml:40 (state 5)
+ 80:	proc  1 (consumidor:1) parcial2019.pml:40 (state 5)
+ 80:	proc  0 (productor:1) parcial2019.pml:33 (state 6)
+3 processes created

@@ -35,7 +35,7 @@ proctype control() {
               tictac != alarma
   od
 }
-
+/*Cuandoe el sistema se bloquea entonces el monitor suma */
 proctype MonitorReloj() {
 	do :: timeout -> 
           if :: (tictac < maxtiempo)->
