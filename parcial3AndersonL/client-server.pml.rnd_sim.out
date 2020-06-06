@@ -1,0 +1,1971 @@
+  0:	proc  - (:root:) creates proc  0 (Emisor)
+spin: client-server.pml:92, redundant skip
+  0:	proc  - (:root:) creates proc  1 (Receptor)
+  0:	proc  - (:root:) creates proc  2 (Receptor)
+  1:	proc  0 (Emisor:1) client-server.pml:44 (state 8)	[((elems<4))]
+
+  2:	proc  0 (Emisor:1) client-server.pml:47 (state 9)	[((flag<2))]
+
+valor del flag 0   3:	proc  0 (Emisor:1) client-server.pml:48 (state 10)	[printf('valor del flag %d ',flag)]
+		queue 1 (env): 
+
+  4:	proc  0 (Emisor:1) client-server.pml:50 (state -)	[values: 1!MENS,3,0]
+  4:	proc  0 (Emisor:1) client-server.pml:50 (state 11)	[env!MENS,file[elems],bitenvio]
+		queue 1 (env): [MENS,3,0]
+
+  5:	proc  1 (Receptor:1) client-server.pml:94 (state -)	[values: 1?MENS,3,0]
+  5:	proc  1 (Receptor:1) client-server.pml:94 (state 4)	[env?MENS,x,bitrecibido]
+		queue 1 (env): 
+		Receptor(1):x = 3
+		Receptor(1):bitrecibido = 0
+
+lei una vez  6:	proc  1 (Receptor:1) client-server.pml:96 (state 5)	[printf('lei una vez')]
+		queue 1 (env): 
+
+  7:	proc  1 (Receptor:1) client-server.pml:97 (state 6)	[((bitanterior!=bitrecibido))]
+
+  8:	proc  1 (Receptor:1) client-server.pml:98 (state 7)	[miArch[m] = x]
+		queue 2 (conf): 
+		queue 1 (env): 
+		Receptor(1):miArch[0] = 3
+		Receptor(1):miArch[1] = 0
+		Receptor(1):miArch[2] = 0
+		Receptor(1):miArch[3] = 0
+
+  9:	proc  1 (Receptor:1) client-server.pml:99 (state 8)	[m = (m+1)]
+		queue 2 (conf): 
+		Receptor(1):m = 1
+
+ 10:	proc  1 (Receptor:1) client-server.pml:101 (state 9)	[bitanterior = bitrecibido]
+		Receptor(1):bitanterior = 0
+
+ 11:	proc  1 (Receptor:1) client-server.pml:107 (state 12)	[.(goto)]
+		queue 2 (conf): 
+		queue 1 (env): 
+
+confirma recibido 12:	proc  1 (Receptor:1) client-server.pml:107 (state 13)	[printf('confirma recibido')]
+		queue 2 (conf): 
+		queue 1 (env): 
+
+ 13:	proc  1 (Receptor:1) client-server.pml:108 (state -)	[values: 2!CNF,0]
+ 13:	proc  1 (Receptor:1) client-server.pml:108 (state 14)	[conf!CNF,bitrecibido]
+		queue 2 (conf): [CNF,0]
+
+ 14:	proc  0 (Emisor:1) client-server.pml:53 (state -)	[values: 2?CNF,0]
+ 14:	proc  0 (Emisor:1) client-server.pml:53 (state 12)	[conf?CNF,bitrecibido]
+		queue 2 (conf): 
+		Emisor(0):bitrecibido = 0
+
+ 15:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+ 16:	proc  0 (Emisor:1) client-server.pml:54 (state 13)	[bitenvio = (1-bitenvio)]
+		Emisor(0):bitenvio = 1
+
+me contestaron, voy a aumentar el flag 17:	proc  0 (Emisor:1) client-server.pml:55 (state 14)	[printf('me contestaron, voy a aumentar el flag')]
+
+ 18:	proc  0 (Emisor:1) client-server.pml:56 (state 15)	[flag = (flag+1)]
+		queue 1 (env): 
+		Emisor(0):flag = 1
+
+ 19:	proc  0 (Emisor:1) client-server.pml:60 (state 19)	[.(goto)]
+		queue 1 (env): 
+
+ 20:	proc  0 (Emisor:1) client-server.pml:64 (state 21)	[.(goto)]
+		queue 1 (env): 
+
+ 21:	proc  0 (Emisor:1) client-server.pml:70 (state 27)	[.(goto)]
+		queue 1 (env): 
+
+ 22:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+ 23:	proc  0 (Emisor:1) client-server.pml:44 (state 8)	[((elems<4))]
+		queue 1 (env): 
+
+ 24:	proc  0 (Emisor:1) client-server.pml:47 (state 9)	[((flag<2))]
+		queue 1 (env): 
+
+valor del flag 1  25:	proc  0 (Emisor:1) client-server.pml:48 (state 10)	[printf('valor del flag %d ',flag)]
+		queue 1 (env): 
+
+ 26:	proc  0 (Emisor:1) client-server.pml:50 (state -)	[values: 1!MENS,3,1]
+ 26:	proc  0 (Emisor:1) client-server.pml:50 (state 11)	[env!MENS,file[elems],bitenvio]
+		queue 1 (env): [MENS,3,1]
+
+ 27:	proc  1 (Receptor:1) client-server.pml:94 (state -)	[values: 1?MENS,3,1]
+ 27:	proc  1 (Receptor:1) client-server.pml:94 (state 4)	[env?MENS,x,bitrecibido]
+		queue 1 (env): 
+		Receptor(1):x = 3
+		Receptor(1):bitrecibido = 1
+
+lei una vez 28:	proc  1 (Receptor:1) client-server.pml:96 (state 5)	[printf('lei una vez')]
+		queue 2 (conf): 
+		queue 1 (env): 
+
+ 29:	proc  1 (Receptor:1) client-server.pml:97 (state 6)	[((bitanterior!=bitrecibido))]
+		queue 1 (env): 
+
+ 30:	proc  1 (Receptor:1) client-server.pml:98 (state 7)	[miArch[m] = x]
+		Receptor(1):miArch[0] = 3
+		Receptor(1):miArch[1] = 3
+		Receptor(1):miArch[2] = 0
+		Receptor(1):miArch[3] = 0
+
+ 31:	proc  1 (Receptor:1) client-server.pml:99 (state 8)	[m = (m+1)]
+		queue 2 (conf): 
+		queue 1 (env): 
+		Receptor(1):m = 2
+
+ 32:	proc  1 (Receptor:1) client-server.pml:101 (state 9)	[bitanterior = bitrecibido]
+		queue 2 (conf): 
+		queue 1 (env): 
+		Receptor(1):bitanterior = 1
+
+ 33:	proc  1 (Receptor:1) client-server.pml:107 (state 12)	[.(goto)]
+
+confirma recibido 34:	proc  1 (Receptor:1) client-server.pml:107 (state 13)	[printf('confirma recibido')]
+		queue 2 (conf): 
+		queue 1 (env): 
+
+ 35:	proc  1 (Receptor:1) client-server.pml:108 (state -)	[values: 2!CNF,1]
+ 35:	proc  1 (Receptor:1) client-server.pml:108 (state 14)	[conf!CNF,bitrecibido]
+		queue 2 (conf): [CNF,1]
+		queue 1 (env): 
+
+ 36:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+		queue 1 (env): 
+
+ 37:	proc  0 (Emisor:1) client-server.pml:53 (state -)	[values: 2?CNF,1]
+ 37:	proc  0 (Emisor:1) client-server.pml:53 (state 12)	[conf?CNF,bitrecibido]
+		queue 2 (conf): 
+		Emisor(0):bitrecibido = 1
+
+ 38:	proc  0 (Emisor:1) client-server.pml:54 (state 13)	[bitenvio = (1-bitenvio)]
+		queue 1 (env): 
+		Emisor(0):bitenvio = 0
+
+me contestaron, voy a aumentar el flag 39:	proc  0 (Emisor:1) client-server.pml:55 (state 14)	[printf('me contestaron, voy a aumentar el flag')]
+		queue 1 (env): 
+
+ 40:	proc  0 (Emisor:1) client-server.pml:56 (state 15)	[flag = (flag+1)]
+		Emisor(0):flag = 2
+
+ 41:	proc  0 (Emisor:1) client-server.pml:60 (state 19)	[.(goto)]
+
+ 42:	proc  0 (Emisor:1) client-server.pml:64 (state 21)	[.(goto)]
+		queue 1 (env): 
+
+ 43:	proc  0 (Emisor:1) client-server.pml:70 (state 27)	[.(goto)]
+		queue 1 (env): 
+
+ 44:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+		queue 1 (env): 
+
+ 45:	proc  0 (Emisor:1) client-server.pml:44 (state 8)	[((elems<4))]
+
+ 46:	proc  0 (Emisor:1) client-server.pml:64 (state 22)	[else]
+
+ya me confirmaron entonces crecere elemento 47:	proc  0 (Emisor:1) client-server.pml:65 (state 23)	[printf('ya me confirmaron entonces crecere elemento')]
+		queue 1 (env): 
+
+ 48:	proc  0 (Emisor:1) client-server.pml:66 (state 24)	[flag = 0]
+		queue 1 (env): 
+		Emisor(0):flag = 0
+
+ 49:	proc  0 (Emisor:1) client-server.pml:67 (state 25)	[elems = (elems+1)]
+		queue 1 (env): 
+		elems = 1
+
+ 50:	proc  0 (Emisor:1) client-server.pml:70 (state 27)	[.(goto)]
+		queue 1 (env): 
+
+ 51:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+ 52:	proc  0 (Emisor:1) client-server.pml:44 (state 8)	[((elems<4))]
+		queue 1 (env): 
+
+ 53:	proc  0 (Emisor:1) client-server.pml:47 (state 9)	[((flag<2))]
+		queue 1 (env): 
+
+valor del flag 0  54:	proc  0 (Emisor:1) client-server.pml:48 (state 10)	[printf('valor del flag %d ',flag)]
+		queue 1 (env): 
+
+ 55:	proc  0 (Emisor:1) client-server.pml:50 (state -)	[values: 1!MENS,5,0]
+ 55:	proc  0 (Emisor:1) client-server.pml:50 (state 11)	[env!MENS,file[elems],bitenvio]
+		queue 1 (env): [MENS,5,0]
+
+ 56:	proc  1 (Receptor:1) client-server.pml:94 (state -)	[values: 1?MENS,5,0]
+ 56:	proc  1 (Receptor:1) client-server.pml:94 (state 4)	[env?MENS,x,bitrecibido]
+		queue 2 (conf): 
+		queue 1 (env): 
+		Receptor(1):x = 5
+		Receptor(1):bitrecibido = 0
+
+lei una vez 57:	proc  1 (Receptor:1) client-server.pml:96 (state 5)	[printf('lei una vez')]
+
+ 58:	proc  1 (Receptor:1) client-server.pml:97 (state 6)	[((bitanterior!=bitrecibido))]
+		queue 2 (conf): 
+		queue 1 (env): 
+
+ 59:	proc  1 (Receptor:1) client-server.pml:98 (state 7)	[miArch[m] = x]
+		queue 1 (env): 
+		Receptor(1):miArch[0] = 3
+		Receptor(1):miArch[1] = 3
+		Receptor(1):miArch[2] = 5
+		Receptor(1):miArch[3] = 0
+
+ 60:	proc  1 (Receptor:1) client-server.pml:99 (state 8)	[m = (m+1)]
+		queue 1 (env): 
+		Receptor(1):m = 3
+
+ 61:	proc  1 (Receptor:1) client-server.pml:101 (state 9)	[bitanterior = bitrecibido]
+		queue 2 (conf): 
+		Receptor(1):bitanterior = 0
+
+ 62:	proc  1 (Receptor:1) client-server.pml:107 (state 12)	[.(goto)]
+
+confirma recibido 63:	proc  1 (Receptor:1) client-server.pml:107 (state 13)	[printf('confirma recibido')]
+		queue 2 (conf): 
+		queue 1 (env): 
+
+ 64:	proc  1 (Receptor:1) client-server.pml:108 (state -)	[values: 2!CNF,0]
+ 64:	proc  1 (Receptor:1) client-server.pml:108 (state 14)	[conf!CNF,bitrecibido]
+		queue 2 (conf): [CNF,0]
+
+ 65:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+		queue 1 (env): 
+
+ 66:	proc  0 (Emisor:1) client-server.pml:53 (state -)	[values: 2?CNF,0]
+ 66:	proc  0 (Emisor:1) client-server.pml:53 (state 12)	[conf?CNF,bitrecibido]
+		queue 2 (conf): 
+		queue 1 (env): 
+		Emisor(0):bitrecibido = 0
+
+ 67:	proc  0 (Emisor:1) client-server.pml:54 (state 13)	[bitenvio = (1-bitenvio)]
+		Emisor(0):bitenvio = 1
+
+me contestaron, voy a aumentar el flag 68:	proc  0 (Emisor:1) client-server.pml:55 (state 14)	[printf('me contestaron, voy a aumentar el flag')]
+		queue 1 (env): 
+
+ 69:	proc  0 (Emisor:1) client-server.pml:56 (state 15)	[flag = (flag+1)]
+		queue 1 (env): 
+		Emisor(0):flag = 1
+
+ 70:	proc  0 (Emisor:1) client-server.pml:60 (state 19)	[.(goto)]
+
+ 71:	proc  0 (Emisor:1) client-server.pml:64 (state 21)	[.(goto)]
+		queue 1 (env): 
+
+ 72:	proc  0 (Emisor:1) client-server.pml:70 (state 27)	[.(goto)]
+		queue 1 (env): 
+
+ 73:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+		queue 1 (env): 
+
+ 74:	proc  0 (Emisor:1) client-server.pml:44 (state 8)	[((elems<4))]
+
+ 75:	proc  0 (Emisor:1) client-server.pml:47 (state 9)	[((flag<2))]
+		queue 1 (env): 
+
+valor del flag 1  76:	proc  0 (Emisor:1) client-server.pml:48 (state 10)	[printf('valor del flag %d ',flag)]
+		queue 1 (env): 
+
+ 77:	proc  0 (Emisor:1) client-server.pml:50 (state -)	[values: 1!MENS,5,1]
+ 77:	proc  0 (Emisor:1) client-server.pml:50 (state 11)	[env!MENS,file[elems],bitenvio]
+		queue 1 (env): [MENS,5,1]
+
+ 78:	proc  1 (Receptor:1) client-server.pml:94 (state -)	[values: 1?MENS,5,1]
+ 78:	proc  1 (Receptor:1) client-server.pml:94 (state 4)	[env?MENS,x,bitrecibido]
+		queue 1 (env): 
+		Receptor(1):x = 5
+		Receptor(1):bitrecibido = 1
+
+lei una vez 79:	proc  1 (Receptor:1) client-server.pml:96 (state 5)	[printf('lei una vez')]
+		queue 2 (conf): 
+		queue 1 (env): 
+
+ 80:	proc  1 (Receptor:1) client-server.pml:97 (state 6)	[((bitanterior!=bitrecibido))]
+		queue 1 (env): 
+
+ 81:	proc  1 (Receptor:1) client-server.pml:98 (state 7)	[miArch[m] = x]
+		queue 2 (conf): 
+		queue 1 (env): 
+		Receptor(1):miArch[0] = 3
+		Receptor(1):miArch[1] = 3
+		Receptor(1):miArch[2] = 5
+		Receptor(1):miArch[3] = 5
+
+ 82:	proc  1 (Receptor:1) client-server.pml:99 (state 8)	[m = (m+1)]
+		queue 2 (conf): 
+		Receptor(1):m = 4
+
+ 83:	proc  1 (Receptor:1) client-server.pml:101 (state 9)	[bitanterior = bitrecibido]
+		Receptor(1):bitanterior = 1
+
+ 84:	proc  1 (Receptor:1) client-server.pml:107 (state 12)	[.(goto)]
+
+confirma recibido 85:	proc  1 (Receptor:1) client-server.pml:107 (state 13)	[printf('confirma recibido')]
+
+ 86:	proc  1 (Receptor:1) client-server.pml:108 (state -)	[values: 2!CNF,1]
+ 86:	proc  1 (Receptor:1) client-server.pml:108 (state 14)	[conf!CNF,bitrecibido]
+		queue 2 (conf): [CNF,1]
+		queue 1 (env): 
+
+ 87:	proc  0 (Emisor:1) client-server.pml:53 (state -)	[values: 2?CNF,1]
+ 87:	proc  0 (Emisor:1) client-server.pml:53 (state 12)	[conf?CNF,bitrecibido]
+		queue 2 (conf): 
+		queue 1 (env): 
+		Emisor(0):bitrecibido = 1
+
+ 88:	proc  0 (Emisor:1) client-server.pml:54 (state 13)	[bitenvio = (1-bitenvio)]
+		queue 1 (env): 
+		Emisor(0):bitenvio = 0
+
+me contestaron, voy a aumentar el flag 89:	proc  0 (Emisor:1) client-server.pml:55 (state 14)	[printf('me contestaron, voy a aumentar el flag')]
+
+ 90:	proc  0 (Emisor:1) client-server.pml:56 (state 15)	[flag = (flag+1)]
+		Emisor(0):flag = 2
+
+ 91:	proc  0 (Emisor:1) client-server.pml:60 (state 19)	[.(goto)]
+
+ 92:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+ 93:	proc  0 (Emisor:1) client-server.pml:64 (state 21)	[.(goto)]
+
+ 94:	proc  0 (Emisor:1) client-server.pml:70 (state 27)	[.(goto)]
+
+ 95:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+ 96:	proc  0 (Emisor:1) client-server.pml:44 (state 8)	[((elems<4))]
+
+ 97:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+ 98:	proc  0 (Emisor:1) client-server.pml:64 (state 22)	[else]
+		queue 1 (env): 
+
+no deberia leer mas 99:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+100:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+101:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+102:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+ya me confirmaron entonces crecere elemento103:	proc  0 (Emisor:1) client-server.pml:65 (state 23)	[printf('ya me confirmaron entonces crecere elemento')]
+
+no deberia leer mas104:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+105:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+106:	proc  0 (Emisor:1) client-server.pml:66 (state 24)	[flag = 0]
+		Emisor(0):flag = 0
+
+107:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+108:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+109:	proc  0 (Emisor:1) client-server.pml:67 (state 25)	[elems = (elems+1)]
+		elems = 2
+
+110:	proc  0 (Emisor:1) client-server.pml:70 (state 27)	[.(goto)]
+
+111:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+no deberia leer mas112:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+113:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+		queue 1 (env): 
+
+114:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+		queue 1 (env): 
+
+115:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+116:	proc  0 (Emisor:1) client-server.pml:44 (state 8)	[((elems<4))]
+
+117:	proc  0 (Emisor:1) client-server.pml:47 (state 9)	[((flag<2))]
+
+no deberia leer mas118:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+valor del flag 0 119:	proc  0 (Emisor:1) client-server.pml:48 (state 10)	[printf('valor del flag %d ',flag)]
+
+120:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+121:	proc  0 (Emisor:1) client-server.pml:50 (state -)	[values: 1!MENS,1,0]
+121:	proc  0 (Emisor:1) client-server.pml:50 (state 11)	[env!MENS,file[elems],bitenvio]
+		queue 1 (env): [MENS,1,0]
+
+122:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+123:	proc  2 (Receptor:1) client-server.pml:94 (state -)	[values: 1?MENS,1,0]
+123:	proc  2 (Receptor:1) client-server.pml:94 (state 4)	[env?MENS,x,bitrecibido]
+		queue 2 (conf): 
+		queue 1 (env): 
+		Receptor(2):x = 1
+		Receptor(2):bitrecibido = 0
+
+124:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+lei una vez125:	proc  2 (Receptor:1) client-server.pml:96 (state 5)	[printf('lei una vez')]
+
+no deberia leer mas126:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+127:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+128:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+129:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 2 (conf): 
+		queue 1 (env): 
+
+no deberia leer mas130:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+		queue 2 (conf): 
+
+131:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+132:	proc  2 (Receptor:1) client-server.pml:97 (state 6)	[((bitanterior!=bitrecibido))]
+
+133:	proc  2 (Receptor:1) client-server.pml:98 (state 7)	[miArch[m] = x]
+		Receptor(2):miArch[0] = 1
+		Receptor(2):miArch[1] = 0
+		Receptor(2):miArch[2] = 0
+		Receptor(2):miArch[3] = 0
+
+134:	proc  2 (Receptor:1) client-server.pml:99 (state 8)	[m = (m+1)]
+		queue 2 (conf): 
+		Receptor(2):m = 1
+
+135:	proc  2 (Receptor:1) client-server.pml:101 (state 9)	[bitanterior = bitrecibido]
+		Receptor(2):bitanterior = 0
+
+136:	proc  2 (Receptor:1) client-server.pml:107 (state 12)	[.(goto)]
+		queue 2 (conf): 
+
+137:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+confirma recibido138:	proc  2 (Receptor:1) client-server.pml:107 (state 13)	[printf('confirma recibido')]
+
+139:	proc  2 (Receptor:1) client-server.pml:108 (state -)	[values: 2!CNF,0]
+139:	proc  2 (Receptor:1) client-server.pml:108 (state 14)	[conf!CNF,bitrecibido]
+		queue 2 (conf): [CNF,0]
+
+140:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+141:	proc  0 (Emisor:1) client-server.pml:53 (state -)	[values: 2?CNF,0]
+141:	proc  0 (Emisor:1) client-server.pml:53 (state 12)	[conf?CNF,bitrecibido]
+		queue 2 (conf): 
+		Emisor(0):bitrecibido = 0
+
+142:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+143:	proc  0 (Emisor:1) client-server.pml:54 (state 13)	[bitenvio = (1-bitenvio)]
+		Emisor(0):bitenvio = 1
+
+me contestaron, voy a aumentar el flag144:	proc  0 (Emisor:1) client-server.pml:55 (state 14)	[printf('me contestaron, voy a aumentar el flag')]
+		queue 1 (env): 
+
+145:	proc  0 (Emisor:1) client-server.pml:56 (state 15)	[flag = (flag+1)]
+		Emisor(0):flag = 1
+
+no deberia leer mas146:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+		queue 1 (env): 
+
+147:	proc  0 (Emisor:1) client-server.pml:60 (state 19)	[.(goto)]
+		queue 1 (env): 
+
+148:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+		queue 1 (env): 
+
+149:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+		queue 1 (env): 
+
+150:	proc  0 (Emisor:1) client-server.pml:64 (state 21)	[.(goto)]
+		queue 1 (env): 
+
+151:	proc  0 (Emisor:1) client-server.pml:70 (state 27)	[.(goto)]
+
+152:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+153:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+		queue 1 (env): 
+
+154:	proc  0 (Emisor:1) client-server.pml:44 (state 8)	[((elems<4))]
+		queue 1 (env): 
+
+no deberia leer mas155:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+		queue 1 (env): 
+
+156:	proc  0 (Emisor:1) client-server.pml:47 (state 9)	[((flag<2))]
+
+valor del flag 1 157:	proc  0 (Emisor:1) client-server.pml:48 (state 10)	[printf('valor del flag %d ',flag)]
+
+158:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+		queue 1 (env): 
+
+159:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+		queue 1 (env): 
+
+160:	proc  0 (Emisor:1) client-server.pml:50 (state -)	[values: 1!MENS,1,1]
+160:	proc  0 (Emisor:1) client-server.pml:50 (state 11)	[env!MENS,file[elems],bitenvio]
+		queue 1 (env): [MENS,1,1]
+
+161:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+no deberia leer mas162:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+163:	proc  2 (Receptor:1) client-server.pml:94 (state -)	[values: 1?MENS,1,1]
+163:	proc  2 (Receptor:1) client-server.pml:94 (state 4)	[env?MENS,x,bitrecibido]
+		queue 2 (conf): 
+		queue 1 (env): 
+		Receptor(2):x = 1
+		Receptor(2):bitrecibido = 1
+
+lei una vez164:	proc  2 (Receptor:1) client-server.pml:96 (state 5)	[printf('lei una vez')]
+		queue 2 (conf): 
+
+165:	proc  2 (Receptor:1) client-server.pml:97 (state 6)	[((bitanterior!=bitrecibido))]
+		queue 2 (conf): 
+
+166:	proc  2 (Receptor:1) client-server.pml:98 (state 7)	[miArch[m] = x]
+		Receptor(2):miArch[0] = 1
+		Receptor(2):miArch[1] = 1
+		Receptor(2):miArch[2] = 0
+		Receptor(2):miArch[3] = 0
+
+167:	proc  2 (Receptor:1) client-server.pml:99 (state 8)	[m = (m+1)]
+		Receptor(2):m = 2
+
+168:	proc  2 (Receptor:1) client-server.pml:101 (state 9)	[bitanterior = bitrecibido]
+		Receptor(2):bitanterior = 1
+
+169:	proc  2 (Receptor:1) client-server.pml:107 (state 12)	[.(goto)]
+		queue 2 (conf): 
+
+confirma recibido170:	proc  2 (Receptor:1) client-server.pml:107 (state 13)	[printf('confirma recibido')]
+
+171:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+172:	proc  2 (Receptor:1) client-server.pml:108 (state -)	[values: 2!CNF,1]
+172:	proc  2 (Receptor:1) client-server.pml:108 (state 14)	[conf!CNF,bitrecibido]
+		queue 2 (conf): [CNF,1]
+
+173:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+174:	proc  0 (Emisor:1) client-server.pml:53 (state -)	[values: 2?CNF,1]
+174:	proc  0 (Emisor:1) client-server.pml:53 (state 12)	[conf?CNF,bitrecibido]
+		queue 2 (conf): 
+		queue 1 (env): 
+		Emisor(0):bitrecibido = 1
+
+175:	proc  0 (Emisor:1) client-server.pml:54 (state 13)	[bitenvio = (1-bitenvio)]
+		Emisor(0):bitenvio = 0
+
+176:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+me contestaron, voy a aumentar el flag177:	proc  0 (Emisor:1) client-server.pml:55 (state 14)	[printf('me contestaron, voy a aumentar el flag')]
+
+178:	proc  0 (Emisor:1) client-server.pml:56 (state 15)	[flag = (flag+1)]
+		Emisor(0):flag = 2
+
+179:	proc  0 (Emisor:1) client-server.pml:60 (state 19)	[.(goto)]
+
+180:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+no deberia leer mas181:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+		queue 1 (env): 
+
+182:	proc  0 (Emisor:1) client-server.pml:64 (state 21)	[.(goto)]
+		queue 1 (env): 
+
+183:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+184:	proc  0 (Emisor:1) client-server.pml:70 (state 27)	[.(goto)]
+
+185:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+		queue 1 (env): 
+
+186:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+		queue 1 (env): 
+
+187:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+no deberia leer mas188:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+		queue 1 (env): 
+
+189:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+190:	proc  0 (Emisor:1) client-server.pml:44 (state 8)	[((elems<4))]
+		queue 1 (env): 
+
+191:	proc  0 (Emisor:1) client-server.pml:64 (state 22)	[else]
+
+ya me confirmaron entonces crecere elemento192:	proc  0 (Emisor:1) client-server.pml:65 (state 23)	[printf('ya me confirmaron entonces crecere elemento')]
+
+193:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+		queue 1 (env): 
+
+194:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+195:	proc  0 (Emisor:1) client-server.pml:66 (state 24)	[flag = 0]
+		queue 1 (env): 
+		Emisor(0):flag = 0
+
+no deberia leer mas196:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+197:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+		queue 1 (env): 
+
+198:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+		queue 1 (env): 
+
+199:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+no deberia leer mas200:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+		queue 1 (env): 
+
+201:	proc  0 (Emisor:1) client-server.pml:67 (state 25)	[elems = (elems+1)]
+		elems = 3
+
+202:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+203:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+204:	proc  0 (Emisor:1) client-server.pml:70 (state 27)	[.(goto)]
+
+205:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+206:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+207:	proc  0 (Emisor:1) client-server.pml:44 (state 8)	[((elems<4))]
+		queue 1 (env): 
+
+208:	proc  0 (Emisor:1) client-server.pml:47 (state 9)	[((flag<2))]
+
+valor del flag 0 209:	proc  0 (Emisor:1) client-server.pml:48 (state 10)	[printf('valor del flag %d ',flag)]
+
+210:	proc  0 (Emisor:1) client-server.pml:50 (state -)	[values: 1!MENS,6,0]
+210:	proc  0 (Emisor:1) client-server.pml:50 (state 11)	[env!MENS,file[elems],bitenvio]
+		queue 1 (env): [MENS,6,0]
+
+no deberia leer mas211:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+		queue 2 (conf): 
+
+212:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+		queue 2 (conf): 
+
+213:	proc  2 (Receptor:1) client-server.pml:94 (state -)	[values: 1?MENS,6,0]
+213:	proc  2 (Receptor:1) client-server.pml:94 (state 4)	[env?MENS,x,bitrecibido]
+		queue 2 (conf): 
+		queue 1 (env): 
+		Receptor(2):x = 6
+		Receptor(2):bitrecibido = 0
+
+214:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+215:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 2 (conf): 
+
+lei una vez216:	proc  2 (Receptor:1) client-server.pml:96 (state 5)	[printf('lei una vez')]
+
+no deberia leer mas217:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+218:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+219:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+220:	proc  2 (Receptor:1) client-server.pml:97 (state 6)	[((bitanterior!=bitrecibido))]
+
+221:	proc  2 (Receptor:1) client-server.pml:98 (state 7)	[miArch[m] = x]
+		Receptor(2):miArch[0] = 1
+		Receptor(2):miArch[1] = 1
+		Receptor(2):miArch[2] = 6
+		Receptor(2):miArch[3] = 0
+
+222:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 2 (conf): 
+		queue 1 (env): 
+
+223:	proc  2 (Receptor:1) client-server.pml:99 (state 8)	[m = (m+1)]
+		Receptor(2):m = 3
+
+no deberia leer mas224:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+225:	proc  2 (Receptor:1) client-server.pml:101 (state 9)	[bitanterior = bitrecibido]
+		Receptor(2):bitanterior = 0
+
+226:	proc  2 (Receptor:1) client-server.pml:107 (state 12)	[.(goto)]
+		queue 2 (conf): 
+
+227:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+confirma recibido228:	proc  2 (Receptor:1) client-server.pml:107 (state 13)	[printf('confirma recibido')]
+		queue 2 (conf): 
+
+229:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+230:	proc  2 (Receptor:1) client-server.pml:108 (state -)	[values: 2!CNF,0]
+230:	proc  2 (Receptor:1) client-server.pml:108 (state 14)	[conf!CNF,bitrecibido]
+		queue 2 (conf): [CNF,0]
+
+231:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+232:	proc  0 (Emisor:1) client-server.pml:53 (state -)	[values: 2?CNF,0]
+232:	proc  0 (Emisor:1) client-server.pml:53 (state 12)	[conf?CNF,bitrecibido]
+		queue 2 (conf): 
+		Emisor(0):bitrecibido = 0
+
+no deberia leer mas233:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+234:	proc  0 (Emisor:1) client-server.pml:54 (state 13)	[bitenvio = (1-bitenvio)]
+		Emisor(0):bitenvio = 1
+
+me contestaron, voy a aumentar el flag235:	proc  0 (Emisor:1) client-server.pml:55 (state 14)	[printf('me contestaron, voy a aumentar el flag')]
+
+236:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+237:	proc  0 (Emisor:1) client-server.pml:56 (state 15)	[flag = (flag+1)]
+		Emisor(0):flag = 1
+
+238:	proc  0 (Emisor:1) client-server.pml:60 (state 19)	[.(goto)]
+		queue 1 (env): 
+
+239:	proc  0 (Emisor:1) client-server.pml:64 (state 21)	[.(goto)]
+		queue 1 (env): 
+
+240:	proc  0 (Emisor:1) client-server.pml:70 (state 27)	[.(goto)]
+		queue 1 (env): 
+
+241:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+242:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+		queue 1 (env): 
+
+243:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+244:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+245:	proc  0 (Emisor:1) client-server.pml:44 (state 8)	[((elems<4))]
+		queue 1 (env): 
+
+246:	proc  0 (Emisor:1) client-server.pml:47 (state 9)	[((flag<2))]
+
+valor del flag 1 247:	proc  0 (Emisor:1) client-server.pml:48 (state 10)	[printf('valor del flag %d ',flag)]
+
+no deberia leer mas248:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+249:	proc  0 (Emisor:1) client-server.pml:50 (state -)	[values: 1!MENS,6,1]
+249:	proc  0 (Emisor:1) client-server.pml:50 (state 11)	[env!MENS,file[elems],bitenvio]
+		queue 1 (env): [MENS,6,1]
+
+250:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+251:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+252:	proc  2 (Receptor:1) client-server.pml:94 (state -)	[values: 1?MENS,6,1]
+252:	proc  2 (Receptor:1) client-server.pml:94 (state 4)	[env?MENS,x,bitrecibido]
+		queue 1 (env): 
+		Receptor(2):x = 6
+		Receptor(2):bitrecibido = 1
+
+253:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 2 (conf): 
+		queue 1 (env): 
+
+lei una vez254:	proc  2 (Receptor:1) client-server.pml:96 (state 5)	[printf('lei una vez')]
+
+no deberia leer mas255:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+		queue 2 (conf): 
+
+256:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+257:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+258:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 2 (conf): 
+
+no deberia leer mas259:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+260:	proc  2 (Receptor:1) client-server.pml:97 (state 6)	[((bitanterior!=bitrecibido))]
+
+261:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+262:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+263:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 2 (conf): 
+
+264:	proc  2 (Receptor:1) client-server.pml:98 (state 7)	[miArch[m] = x]
+		queue 2 (conf): 
+		Receptor(2):miArch[0] = 1
+		Receptor(2):miArch[1] = 1
+		Receptor(2):miArch[2] = 6
+		Receptor(2):miArch[3] = 6
+
+no deberia leer mas265:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+		queue 2 (conf): 
+
+266:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+267:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+		queue 2 (conf): 
+
+268:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+269:	proc  2 (Receptor:1) client-server.pml:99 (state 8)	[m = (m+1)]
+		Receptor(2):m = 4
+
+no deberia leer mas270:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+		queue 2 (conf): 
+
+271:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+272:	proc  2 (Receptor:1) client-server.pml:101 (state 9)	[bitanterior = bitrecibido]
+		queue 2 (conf): 
+		Receptor(2):bitanterior = 1
+
+273:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+274:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+no deberia leer mas275:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+276:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+277:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+		queue 2 (conf): 
+
+278:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+no deberia leer mas279:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+280:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+		queue 2 (conf): 
+
+281:	proc  2 (Receptor:1) client-server.pml:107 (state 12)	[.(goto)]
+
+282:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+283:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+confirma recibido284:	proc  2 (Receptor:1) client-server.pml:107 (state 13)	[printf('confirma recibido')]
+
+285:	proc  2 (Receptor:1) client-server.pml:108 (state -)	[values: 2!CNF,1]
+285:	proc  2 (Receptor:1) client-server.pml:108 (state 14)	[conf!CNF,bitrecibido]
+		queue 2 (conf): [CNF,1]
+
+286:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+no deberia leer mas287:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+288:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+289:	proc  0 (Emisor:1) client-server.pml:53 (state -)	[values: 2?CNF,1]
+289:	proc  0 (Emisor:1) client-server.pml:53 (state 12)	[conf?CNF,bitrecibido]
+		queue 2 (conf): 
+		Emisor(0):bitrecibido = 1
+
+290:	proc  0 (Emisor:1) client-server.pml:54 (state 13)	[bitenvio = (1-bitenvio)]
+		Emisor(0):bitenvio = 0
+
+291:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+me contestaron, voy a aumentar el flag292:	proc  0 (Emisor:1) client-server.pml:55 (state 14)	[printf('me contestaron, voy a aumentar el flag')]
+
+293:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+294:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+295:	proc  0 (Emisor:1) client-server.pml:56 (state 15)	[flag = (flag+1)]
+		Emisor(0):flag = 2
+
+296:	proc  0 (Emisor:1) client-server.pml:60 (state 19)	[.(goto)]
+
+297:	proc  0 (Emisor:1) client-server.pml:64 (state 21)	[.(goto)]
+
+no deberia leer mas298:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+299:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+300:	proc  0 (Emisor:1) client-server.pml:70 (state 27)	[.(goto)]
+
+no deberia leer mas301:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+302:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+303:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+304:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+305:	proc  0 (Emisor:1) client-server.pml:44 (state 8)	[((elems<4))]
+
+306:	proc  0 (Emisor:1) client-server.pml:64 (state 22)	[else]
+
+307:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+no deberia leer mas308:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+309:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+310:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+311:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+312:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+no deberia leer mas313:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+314:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+315:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+ya me confirmaron entonces crecere elemento316:	proc  0 (Emisor:1) client-server.pml:65 (state 23)	[printf('ya me confirmaron entonces crecere elemento')]
+
+317:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+no deberia leer mas318:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+319:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+320:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+321:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+322:	proc  0 (Emisor:1) client-server.pml:66 (state 24)	[flag = 0]
+		Emisor(0):flag = 0
+
+no deberia leer mas323:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+324:	proc  0 (Emisor:1) client-server.pml:67 (state 25)	[elems = (elems+1)]
+		elems = 4
+
+325:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+326:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+327:	proc  0 (Emisor:1) client-server.pml:70 (state 27)	[.(goto)]
+
+328:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+329:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+330:	proc  0 (Emisor:1) client-server.pml:35 (state 1)	[((elems==4))]
+
+331:	proc  0 (Emisor:1) client-server.pml:40 (state 4)	[else]
+
+332:	proc  0 (Emisor:1) client-server.pml:40 (state 5)	[(1)]
+
+no deberia leer mas333:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+334:	proc  0 (Emisor:1) client-server.pml:44 (state 7)	[.(goto)]
+
+335:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+336:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+no deberia leer mas337:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+338:	proc  0 (Emisor:1) client-server.pml:35 (state 1)	[((elems==4))]
+
+339:	proc  0 (Emisor:1) client-server.pml:40 (state 4)	[else]
+
+340:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+341:	proc  0 (Emisor:1) client-server.pml:40 (state 5)	[(1)]
+
+342:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+343:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+344:	proc  0 (Emisor:1) client-server.pml:44 (state 7)	[.(goto)]
+
+345:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+no deberia leer mas346:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+347:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+348:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+349:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+350:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+351:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+352:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+no deberia leer mas353:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+354:	proc  0 (Emisor:1) client-server.pml:35 (state 1)	[((elems==4))]
+
+355:	proc  0 (Emisor:1) client-server.pml:40 (state 4)	[else]
+
+356:	proc  0 (Emisor:1) client-server.pml:40 (state 5)	[(1)]
+
+357:	proc  0 (Emisor:1) client-server.pml:44 (state 7)	[.(goto)]
+
+no deberia leer mas358:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+359:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+360:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+361:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+no deberia leer mas362:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+363:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+364:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+365:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+366:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+367:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+368:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+369:	proc  0 (Emisor:1) client-server.pml:35 (state 1)	[((elems==4))]
+
+370:	proc  0 (Emisor:1) client-server.pml:40 (state 4)	[else]
+
+no deberia leer mas371:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+372:	proc  0 (Emisor:1) client-server.pml:40 (state 5)	[(1)]
+
+373:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+374:	proc  0 (Emisor:1) client-server.pml:44 (state 7)	[.(goto)]
+
+375:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+376:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+no deberia leer mas377:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+378:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+379:	proc  0 (Emisor:1) client-server.pml:35 (state 1)	[((elems==4))]
+
+380:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+381:	proc  0 (Emisor:1) client-server.pml:40 (state 4)	[else]
+
+382:	proc  0 (Emisor:1) client-server.pml:40 (state 5)	[(1)]
+
+383:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+384:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+385:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+no deberia leer mas386:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+no deberia leer mas387:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+388:	proc  0 (Emisor:1) client-server.pml:44 (state 7)	[.(goto)]
+
+389:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+390:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+391:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+392:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+393:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+394:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+no deberia leer mas395:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+no deberia leer mas396:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+397:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+398:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+399:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+400:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+401:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+no deberia leer mas402:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+403:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+404:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+405:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+406:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+407:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+no deberia leer mas408:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+409:	proc  0 (Emisor:1) client-server.pml:35 (state 1)	[((elems==4))]
+
+410:	proc  0 (Emisor:1) client-server.pml:40 (state 4)	[else]
+
+411:	proc  0 (Emisor:1) client-server.pml:40 (state 5)	[(1)]
+
+no deberia leer mas412:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+413:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+414:	proc  0 (Emisor:1) client-server.pml:44 (state 7)	[.(goto)]
+
+415:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+416:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+417:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+418:	proc  0 (Emisor:1) client-server.pml:35 (state 1)	[((elems==4))]
+
+419:	proc  0 (Emisor:1) client-server.pml:40 (state 4)	[else]
+
+no deberia leer mas420:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+421:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+422:	proc  0 (Emisor:1) client-server.pml:40 (state 5)	[(1)]
+
+423:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+424:	proc  0 (Emisor:1) client-server.pml:44 (state 7)	[.(goto)]
+
+425:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+426:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+427:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+428:	proc  0 (Emisor:1) client-server.pml:35 (state 1)	[((elems==4))]
+
+429:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+no deberia leer mas430:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+431:	proc  0 (Emisor:1) client-server.pml:40 (state 4)	[else]
+
+432:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+433:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+434:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+435:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+436:	proc  0 (Emisor:1) client-server.pml:40 (state 5)	[(1)]
+
+no deberia leer mas437:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+438:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+no deberia leer mas439:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+440:	proc  0 (Emisor:1) client-server.pml:44 (state 7)	[.(goto)]
+
+441:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+442:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+443:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+444:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+445:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+446:	proc  0 (Emisor:1) client-server.pml:35 (state 1)	[((elems==4))]
+
+447:	proc  0 (Emisor:1) client-server.pml:40 (state 4)	[else]
+
+no deberia leer mas448:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+449:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+450:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+no deberia leer mas451:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+452:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+453:	proc  0 (Emisor:1) client-server.pml:40 (state 5)	[(1)]
+
+454:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+455:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+no deberia leer mas456:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+457:	proc  0 (Emisor:1) client-server.pml:44 (state 7)	[.(goto)]
+
+458:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+459:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+460:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+461:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+462:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+463:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+no deberia leer mas464:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+465:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+466:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+467:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+no deberia leer mas468:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+469:	proc  0 (Emisor:1) client-server.pml:35 (state 1)	[((elems==4))]
+
+470:	proc  0 (Emisor:1) client-server.pml:40 (state 4)	[else]
+
+no deberia leer mas471:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+472:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+473:	proc  0 (Emisor:1) client-server.pml:40 (state 5)	[(1)]
+
+474:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+475:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+476:	proc  0 (Emisor:1) client-server.pml:44 (state 7)	[.(goto)]
+
+477:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+478:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+479:	proc  0 (Emisor:1) client-server.pml:35 (state 1)	[((elems==4))]
+
+480:	proc  0 (Emisor:1) client-server.pml:40 (state 4)	[else]
+
+481:	proc  0 (Emisor:1) client-server.pml:40 (state 5)	[(1)]
+
+482:	proc  0 (Emisor:1) client-server.pml:44 (state 7)	[.(goto)]
+
+483:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+484:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+no deberia leer mas485:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+486:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+487:	proc  0 (Emisor:1) client-server.pml:35 (state 1)	[((elems==4))]
+
+no deberia leer mas488:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+489:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+490:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+491:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+492:	proc  0 (Emisor:1) client-server.pml:40 (state 4)	[else]
+
+493:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+494:	proc  0 (Emisor:1) client-server.pml:40 (state 5)	[(1)]
+
+495:	proc  0 (Emisor:1) client-server.pml:44 (state 7)	[.(goto)]
+
+496:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+497:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+no deberia leer mas498:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+499:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+500:	proc  0 (Emisor:1) client-server.pml:35 (state 1)	[((elems==4))]
+
+501:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+no deberia leer mas502:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+503:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+504:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+505:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+no deberia leer mas506:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+507:	proc  0 (Emisor:1) client-server.pml:40 (state 4)	[else]
+
+508:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+509:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+510:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+511:	proc  0 (Emisor:1) client-server.pml:40 (state 5)	[(1)]
+
+512:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+513:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+514:	proc  0 (Emisor:1) client-server.pml:44 (state 7)	[.(goto)]
+
+no deberia leer mas515:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+516:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+no deberia leer mas517:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+518:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+519:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+520:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+521:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+522:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+523:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+no deberia leer mas524:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+525:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+526:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+527:	proc  0 (Emisor:1) client-server.pml:35 (state 1)	[((elems==4))]
+
+528:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+no deberia leer mas529:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+no deberia leer mas530:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+531:	proc  0 (Emisor:1) client-server.pml:40 (state 4)	[else]
+
+532:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+533:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+534:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+535:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+536:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+537:	proc  0 (Emisor:1) client-server.pml:40 (state 5)	[(1)]
+
+538:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+539:	proc  0 (Emisor:1) client-server.pml:44 (state 7)	[.(goto)]
+
+no deberia leer mas540:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+no deberia leer mas541:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+542:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+543:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+544:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+no deberia leer mas545:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+546:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+547:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+548:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+549:	proc  0 (Emisor:1) client-server.pml:35 (state 1)	[((elems==4))]
+
+550:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+551:	proc  0 (Emisor:1) client-server.pml:40 (state 4)	[else]
+
+552:	proc  0 (Emisor:1) client-server.pml:40 (state 5)	[(1)]
+
+553:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+554:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+555:	proc  0 (Emisor:1) client-server.pml:44 (state 7)	[.(goto)]
+
+no deberia leer mas556:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+557:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+no deberia leer mas558:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+559:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+560:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+561:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+562:	proc  0 (Emisor:1) client-server.pml:35 (state 1)	[((elems==4))]
+
+563:	proc  0 (Emisor:1) client-server.pml:40 (state 4)	[else]
+
+564:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+no deberia leer mas565:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+566:	proc  0 (Emisor:1) client-server.pml:40 (state 5)	[(1)]
+
+567:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+568:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+569:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+570:	proc  0 (Emisor:1) client-server.pml:44 (state 7)	[.(goto)]
+
+no deberia leer mas571:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+572:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+573:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+574:	proc  0 (Emisor:1) client-server.pml:35 (state 1)	[((elems==4))]
+
+575:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+576:	proc  0 (Emisor:1) client-server.pml:40 (state 4)	[else]
+
+577:	proc  0 (Emisor:1) client-server.pml:40 (state 5)	[(1)]
+
+578:	proc  0 (Emisor:1) client-server.pml:44 (state 7)	[.(goto)]
+
+579:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+580:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+581:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+582:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+no deberia leer mas583:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+no deberia leer mas584:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+585:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+586:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+587:	proc  0 (Emisor:1) client-server.pml:35 (state 1)	[((elems==4))]
+
+588:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+589:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+590:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+591:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+592:	proc  0 (Emisor:1) client-server.pml:40 (state 4)	[else]
+
+593:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+no deberia leer mas594:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+595:	proc  0 (Emisor:1) client-server.pml:40 (state 5)	[(1)]
+
+596:	proc  0 (Emisor:1) client-server.pml:44 (state 7)	[.(goto)]
+
+no deberia leer mas597:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+598:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+599:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+600:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+601:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+602:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+no deberia leer mas603:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+604:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+605:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+606:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+no deberia leer mas607:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+608:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+609:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+610:	proc  0 (Emisor:1) client-server.pml:35 (state 1)	[((elems==4))]
+
+611:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+612:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+613:	proc  0 (Emisor:1) client-server.pml:40 (state 4)	[else]
+
+no deberia leer mas614:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+615:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+616:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+617:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+618:	proc  0 (Emisor:1) client-server.pml:40 (state 5)	[(1)]
+
+no deberia leer mas619:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+620:	proc  0 (Emisor:1) client-server.pml:44 (state 7)	[.(goto)]
+
+621:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+622:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+623:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+no deberia leer mas624:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+625:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+626:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+627:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+no deberia leer mas628:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+629:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+630:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+631:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+632:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+633:	proc  0 (Emisor:1) client-server.pml:35 (state 1)	[((elems==4))]
+
+634:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+635:	proc  0 (Emisor:1) client-server.pml:40 (state 4)	[else]
+
+no deberia leer mas636:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+637:	proc  0 (Emisor:1) client-server.pml:40 (state 5)	[(1)]
+
+638:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+639:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+no deberia leer mas640:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+641:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+642:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+643:	proc  0 (Emisor:1) client-server.pml:44 (state 7)	[.(goto)]
+
+644:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+645:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+646:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+no deberia leer mas647:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+648:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+649:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+650:	proc  0 (Emisor:1) client-server.pml:35 (state 1)	[((elems==4))]
+
+no deberia leer mas651:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+652:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+653:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+654:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+no deberia leer mas655:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+656:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+no deberia leer mas657:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+658:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+659:	proc  0 (Emisor:1) client-server.pml:40 (state 4)	[else]
+
+660:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+661:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+662:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+663:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+no deberia leer mas664:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+665:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+666:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+no deberia leer mas667:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+668:	proc  0 (Emisor:1) client-server.pml:40 (state 5)	[(1)]
+
+669:	proc  0 (Emisor:1) client-server.pml:44 (state 7)	[.(goto)]
+
+670:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+671:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+no deberia leer mas672:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+673:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+674:	proc  0 (Emisor:1) client-server.pml:35 (state 1)	[((elems==4))]
+
+675:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+676:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+677:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+678:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+no deberia leer mas679:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+680:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+681:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+682:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+683:	proc  0 (Emisor:1) client-server.pml:40 (state 4)	[else]
+
+684:	proc  0 (Emisor:1) client-server.pml:40 (state 5)	[(1)]
+
+685:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+no deberia leer mas686:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+687:	proc  0 (Emisor:1) client-server.pml:44 (state 7)	[.(goto)]
+
+688:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+689:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+690:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+no deberia leer mas691:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+692:	proc  0 (Emisor:1) client-server.pml:35 (state 1)	[((elems==4))]
+
+693:	proc  0 (Emisor:1) client-server.pml:40 (state 4)	[else]
+
+694:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+695:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+696:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+697:	proc  0 (Emisor:1) client-server.pml:40 (state 5)	[(1)]
+
+no deberia leer mas698:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+699:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+700:	proc  0 (Emisor:1) client-server.pml:44 (state 7)	[.(goto)]
+
+701:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+702:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+703:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+704:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+705:	proc  0 (Emisor:1) client-server.pml:35 (state 1)	[((elems==4))]
+
+706:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+no deberia leer mas707:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+no deberia leer mas708:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+709:	proc  0 (Emisor:1) client-server.pml:40 (state 4)	[else]
+
+710:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+711:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+712:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+713:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+no deberia leer mas714:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+715:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+716:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+717:	proc  0 (Emisor:1) client-server.pml:40 (state 5)	[(1)]
+
+718:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+no deberia leer mas719:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+720:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+721:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+722:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+723:	proc  0 (Emisor:1) client-server.pml:44 (state 7)	[.(goto)]
+
+no deberia leer mas724:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+725:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+726:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+727:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+728:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+no deberia leer mas729:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+730:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+731:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+732:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+733:	proc  0 (Emisor:1) client-server.pml:35 (state 1)	[((elems==4))]
+
+734:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+735:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+no deberia leer mas736:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+737:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+no deberia leer mas738:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+739:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+740:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+741:	proc  0 (Emisor:1) client-server.pml:40 (state 4)	[else]
+
+742:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+743:	proc  0 (Emisor:1) client-server.pml:40 (state 5)	[(1)]
+
+744:	proc  0 (Emisor:1) client-server.pml:44 (state 7)	[.(goto)]
+
+745:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+no deberia leer mas746:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+747:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+748:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+749:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+750:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+751:	proc  0 (Emisor:1) client-server.pml:35 (state 1)	[((elems==4))]
+
+752:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+no deberia leer mas753:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+no deberia leer mas754:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+755:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+756:	proc  0 (Emisor:1) client-server.pml:40 (state 4)	[else]
+
+757:	proc  0 (Emisor:1) client-server.pml:40 (state 5)	[(1)]
+
+758:	proc  0 (Emisor:1) client-server.pml:44 (state 7)	[.(goto)]
+
+759:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+760:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+761:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+762:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+763:	proc  0 (Emisor:1) client-server.pml:35 (state 1)	[((elems==4))]
+
+764:	proc  0 (Emisor:1) client-server.pml:40 (state 4)	[else]
+
+765:	proc  0 (Emisor:1) client-server.pml:40 (state 5)	[(1)]
+
+no deberia leer mas766:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+767:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+768:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+769:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+770:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+771:	proc  0 (Emisor:1) client-server.pml:44 (state 7)	[.(goto)]
+
+772:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+no deberia leer mas773:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+774:	proc  0 (Emisor:1) client-server.pml:35 (state 1)	[((elems==4))]
+
+775:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+776:	proc  0 (Emisor:1) client-server.pml:40 (state 4)	[else]
+
+777:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+778:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+779:	proc  0 (Emisor:1) client-server.pml:40 (state 5)	[(1)]
+
+780:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+no deberia leer mas781:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+782:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+783:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+784:	proc  0 (Emisor:1) client-server.pml:44 (state 7)	[.(goto)]
+
+no deberia leer mas785:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+786:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+787:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+788:	proc  0 (Emisor:1) client-server.pml:35 (state 1)	[((elems==4))]
+
+789:	proc  0 (Emisor:1) client-server.pml:40 (state 4)	[else]
+
+790:	proc  0 (Emisor:1) client-server.pml:40 (state 5)	[(1)]
+
+791:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+792:	proc  0 (Emisor:1) client-server.pml:44 (state 7)	[.(goto)]
+
+793:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+794:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+795:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+no deberia leer mas796:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+797:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+798:	proc  0 (Emisor:1) client-server.pml:35 (state 1)	[((elems==4))]
+
+799:	proc  2 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+no deberia leer mas800:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+801:	proc  2 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+802:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+803:	proc  0 (Emisor:1) client-server.pml:40 (state 4)	[else]
+
+804:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+805:	proc  0 (Emisor:1) client-server.pml:40 (state 5)	[(1)]
+
+806:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+
+no deberia leer mas807:	proc  1 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+no deberia leer mas808:	proc  2 (Receptor:1) client-server.pml:91 (state 2)	[printf('no deberia leer mas')]
+
+809:	proc  0 (Emisor:1) client-server.pml:44 (state 7)	[.(goto)]
+
+810:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+811:	proc  0 (Emisor:1) client-server.pml:35 (state 1)	[((elems==4))]
+
+812:	proc  1 (Receptor:1) client-server.pml:92 (state 3)	[(1)]
+
+813:	proc  0 (Emisor:1) client-server.pml:40 (state 4)	[else]
+
+814:	proc  0 (Emisor:1) client-server.pml:40 (state 5)	[(1)]
+
+815:	proc  1 (Receptor:1) client-server.pml:112 (state 18)	[.(goto)]
+
+816:	proc  0 (Emisor:1) client-server.pml:44 (state 7)	[.(goto)]
+
+817:	proc  0 (Emisor:1) client-server.pml:74 (state 31)	[.(goto)]
+
+818:	proc  0 (Emisor:1) client-server.pml:35 (state 1)	[((elems==4))]
+
+819:	proc  1 (Receptor:1) client-server.pml:90 (state 1)	[((miArch[3]!=0))]
+		queue 1 (env): 
+
+820:	proc  0 (Emisor:1) client-server.pml:40 (state 4)	[else]
+
+821:	proc  0 (Emisor:1) client-server.pml:40 (state 5)	[(1)]
+
+822:	proc  0 (Emisor:1) client-server.pml:44 (state 7)	[.(goto)]
+
+823:	proc  2 (Receptor:1) client-server.pml:92 (state 3)	[(1)]

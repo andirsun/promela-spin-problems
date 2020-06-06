@@ -1,0 +1,247 @@
+  0:	proc  - (:root:) creates proc  0 (:init:)
+spin: oneClient-server.pml:0, warning, global, 'int   miArch' variable is never used (other than in print stmnts)
+Starting Emisor with pid 1
+  1:	proc  0 (:init::1) creates proc  1 (Emisor)
+  1:	proc  0 (:init::1) oneClient-server.pml:77 (state 1)	[(run Emisor(haciaE,haciaR))]
+		queue 1 (haciaE): 
+		queue 2 (haciaR): 
+
+  2:	proc  1 (Emisor:1) oneClient-server.pml:21 (state 3)	[((elems<4))]
+
+Starting Receptor with pid 2
+  3:	proc  0 (:init::1) creates proc  2 (Receptor)
+  3:	proc  0 (:init::1) oneClient-server.pml:78 (state 2)	[(run Receptor(haciaR,haciaE))]
+
+hola  4:	proc  1 (Emisor:1) oneClient-server.pml:22 (state 4)	[printf('hola')]
+		queue 2 (haciaR): 
+		queue 2 (Emisor(1):escr): 
+
+  5:	proc  1 (Emisor:1) oneClient-server.pml:24 (state -)	[values: 2!MENS,3,0]
+  5:	proc  1 (Emisor:1) oneClient-server.pml:24 (state 5)	[escr!MENS,file[elems],bitenvio]
+		queue 2 (haciaR): [MENS,3,0]
+		queue 2 (Emisor(1):escr): [MENS,3,0]
+
+  6:	proc  2 (Receptor:1) oneClient-server.pml:55 (state -)	[values: 2?MENS,3,0]
+  6:	proc  2 (Receptor:1) oneClient-server.pml:55 (state 1)	[leer?MENS,x,bitrecibido]
+		queue 1 (haciaE): 
+		queue 2 (haciaR): 
+		Receptor(2):x = 3
+		Receptor(2):bitrecibido = 0
+		queue 1 (Receptor(2):escr): 
+		queue 2 (Receptor(2):leer): 
+
+  7:	proc  2 (Receptor:1) oneClient-server.pml:56 (state 2)	[((bitanterior!=bitrecibido))]
+		queue 1 (haciaE): 
+		queue 1 (Receptor(2):escr): 
+
+  8:	proc  2 (Receptor:1) oneClient-server.pml:57 (state 3)	[miArch[m] = x]
+		queue 1 (haciaE): 
+		miArch[0] = 3
+		miArch[1] = 0
+		miArch[2] = 0
+		miArch[3] = 0
+		queue 1 (Receptor(2):escr): 
+
+  9:	proc  2 (Receptor:1) oneClient-server.pml:58 (state 4)	[m = (m+1)]
+		queue 1 (haciaE): 
+		m = 1
+		queue 1 (Receptor(2):escr): 
+
+ 10:	proc  2 (Receptor:1) oneClient-server.pml:59 (state 5)	[bitanterior = bitrecibido]
+		queue 1 (haciaE): 
+		Receptor(2):bitanterior = 0
+		queue 1 (Receptor(2):escr): 
+
+ 11:	proc  2 (Receptor:1) oneClient-server.pml:62 (state 8)	[.(goto)]
+		queue 1 (haciaE): 
+		queue 1 (Receptor(2):escr): 
+
+ 12:	proc  2 (Receptor:1) oneClient-server.pml:62 (state -)	[values: 1!CNF,0]
+ 12:	proc  2 (Receptor:1) oneClient-server.pml:62 (state 9)	[escr!CNF,bitrecibido]
+		queue 1 (haciaE): [CNF,0]
+		queue 1 (Receptor(2):escr): [CNF,0]
+
+ 13:	proc  2 (Receptor:1) oneClient-server.pml:65 (state 13)	[.(goto)]
+
+ 14:	proc  1 (Emisor:1) oneClient-server.pml:28 (state -)	[values: 1?CNF,0]
+ 14:	proc  1 (Emisor:1) oneClient-server.pml:28 (state 6)	[leer?CNF,bitrecibido]
+		queue 1 (haciaE): 
+		Emisor(1):bitrecibido = 0
+		queue 1 (Emisor(1):leer): 
+
+ 15:	proc  1 (Emisor:1) oneClient-server.pml:29 (state 7)	[bitenvio = (1-bitenvio)]
+		Emisor(1):bitenvio = 1
+
+ 16:	proc  1 (Emisor:1) oneClient-server.pml:30 (state 8)	[elems = (elems+1)]
+		queue 2 (haciaR): 
+		elems = 1
+		queue 2 (Emisor(1):escr): 
+
+ 17:	proc  1 (Emisor:1) oneClient-server.pml:38 (state 16)	[.(goto)]
+		queue 2 (haciaR): 
+		queue 2 (Emisor(1):escr): 
+
+ 18:	proc  1 (Emisor:1) oneClient-server.pml:41 (state 20)	[.(goto)]
+
+ 19:	proc  1 (Emisor:1) oneClient-server.pml:44 (state 24)	[.(goto)]
+		queue 2 (haciaR): 
+		queue 2 (Emisor(1):escr): 
+
+ 20:	proc  1 (Emisor:1) oneClient-server.pml:21 (state 3)	[((elems<4))]
+
+hola 21:	proc  1 (Emisor:1) oneClient-server.pml:22 (state 4)	[printf('hola')]
+		queue 2 (haciaR): 
+		queue 2 (Emisor(1):escr): 
+
+ 22:	proc  1 (Emisor:1) oneClient-server.pml:24 (state -)	[values: 2!MENS,5,1]
+ 22:	proc  1 (Emisor:1) oneClient-server.pml:24 (state 5)	[escr!MENS,file[elems],bitenvio]
+		queue 2 (haciaR): [MENS,5,1]
+		queue 2 (Emisor(1):escr): [MENS,5,1]
+
+ 23:	proc  2 (Receptor:1) oneClient-server.pml:55 (state -)	[values: 2?MENS,5,1]
+ 23:	proc  2 (Receptor:1) oneClient-server.pml:55 (state 1)	[leer?MENS,x,bitrecibido]
+		queue 2 (haciaR): 
+		Receptor(2):x = 5
+		Receptor(2):bitrecibido = 1
+		queue 2 (Receptor(2):leer): 
+
+ 24:	proc  2 (Receptor:1) oneClient-server.pml:56 (state 2)	[((bitanterior!=bitrecibido))]
+
+ 25:	proc  2 (Receptor:1) oneClient-server.pml:57 (state 3)	[miArch[m] = x]
+		miArch[0] = 3
+		miArch[1] = 5
+		miArch[2] = 0
+		miArch[3] = 0
+
+ 26:	proc  2 (Receptor:1) oneClient-server.pml:58 (state 4)	[m = (m+1)]
+		queue 1 (haciaE): 
+		m = 2
+		queue 1 (Receptor(2):escr): 
+
+ 27:	proc  2 (Receptor:1) oneClient-server.pml:59 (state 5)	[bitanterior = bitrecibido]
+		queue 1 (haciaE): 
+		Receptor(2):bitanterior = 1
+		queue 1 (Receptor(2):escr): 
+
+ 28:	proc  2 (Receptor:1) oneClient-server.pml:62 (state 8)	[.(goto)]
+		queue 1 (haciaE): 
+		queue 1 (Receptor(2):escr): 
+
+ 29:	proc  2 (Receptor:1) oneClient-server.pml:62 (state -)	[values: 1!CNF,1]
+ 29:	proc  2 (Receptor:1) oneClient-server.pml:62 (state 9)	[escr!CNF,bitrecibido]
+		queue 1 (haciaE): [CNF,1]
+		queue 1 (Receptor(2):escr): [CNF,1]
+
+ 30:	proc  1 (Emisor:1) oneClient-server.pml:28 (state -)	[values: 1?CNF,1]
+ 30:	proc  1 (Emisor:1) oneClient-server.pml:28 (state 6)	[leer?CNF,bitrecibido]
+		queue 1 (haciaE): 
+		Emisor(1):bitrecibido = 1
+		queue 1 (Emisor(1):leer): 
+
+ 31:	proc  2 (Receptor:1) oneClient-server.pml:65 (state 13)	[.(goto)]
+
+ 32:	proc  1 (Emisor:1) oneClient-server.pml:29 (state 7)	[bitenvio = (1-bitenvio)]
+		queue 2 (haciaR): 
+		Emisor(1):bitenvio = 0
+		queue 2 (Emisor(1):escr): 
+
+ 33:	proc  1 (Emisor:1) oneClient-server.pml:30 (state 8)	[elems = (elems+1)]
+		elems = 2
+
+ 34:	proc  1 (Emisor:1) oneClient-server.pml:38 (state 16)	[.(goto)]
+		queue 2 (haciaR): 
+		queue 2 (Emisor(1):escr): 
+
+ 35:	proc  1 (Emisor:1) oneClient-server.pml:41 (state 20)	[.(goto)]
+		queue 2 (haciaR): 
+		queue 2 (Emisor(1):escr): 
+
+ 36:	proc  1 (Emisor:1) oneClient-server.pml:44 (state 24)	[.(goto)]
+		queue 2 (haciaR): 
+		queue 2 (Emisor(1):escr): 
+
+ 37:	proc  1 (Emisor:1) oneClient-server.pml:21 (state 3)	[((elems<4))]
+
+hola 38:	proc  1 (Emisor:1) oneClient-server.pml:22 (state 4)	[printf('hola')]
+		queue 2 (haciaR): 
+		queue 2 (Emisor(1):escr): 
+
+ 39:	proc  1 (Emisor:1) oneClient-server.pml:24 (state -)	[values: 2!MENS,1,0]
+ 39:	proc  1 (Emisor:1) oneClient-server.pml:24 (state 5)	[escr!MENS,file[elems],bitenvio]
+		queue 2 (haciaR): [MENS,1,0]
+		queue 2 (Emisor(1):escr): [MENS,1,0]
+
+ 40:	proc  2 (Receptor:1) oneClient-server.pml:55 (state -)	[values: 2?MENS,1,0]
+ 40:	proc  2 (Receptor:1) oneClient-server.pml:55 (state 1)	[leer?MENS,x,bitrecibido]
+		queue 2 (haciaR): 
+		Receptor(2):x = 1
+		Receptor(2):bitrecibido = 0
+		queue 2 (Receptor(2):leer): 
+
+ 41:	proc  2 (Receptor:1) oneClient-server.pml:56 (state 2)	[((bitanterior!=bitrecibido))]
+		queue 1 (haciaE): 
+		queue 1 (Receptor(2):escr): 
+
+ 42:	proc  2 (Receptor:1) oneClient-server.pml:57 (state 3)	[miArch[m] = x]
+		queue 1 (haciaE): 
+		miArch[0] = 3
+		miArch[1] = 5
+		miArch[2] = 1
+		miArch[3] = 0
+		queue 1 (Receptor(2):escr): 
+
+ 43:	proc  2 (Receptor:1) oneClient-server.pml:58 (state 4)	[m = (m+1)]
+		m = 3
+
+ 44:	proc  2 (Receptor:1) oneClient-server.pml:59 (state 5)	[bitanterior = bitrecibido]
+		queue 1 (haciaE): 
+		Receptor(2):bitanterior = 0
+		queue 1 (Receptor(2):escr): 
+
+ 45:	proc  2 (Receptor:1) oneClient-server.pml:62 (state 8)	[.(goto)]
+		queue 1 (haciaE): 
+		queue 1 (Receptor(2):escr): 
+
+ 46:	proc  2 (Receptor:1) oneClient-server.pml:62 (state -)	[values: 1!CNF,0]
+ 46:	proc  2 (Receptor:1) oneClient-server.pml:62 (state 9)	[escr!CNF,bitrecibido]
+		queue 1 (haciaE): [CNF,0]
+		queue 1 (Receptor(2):escr): [CNF,0]
+
+ 47:	proc  1 (Emisor:1) oneClient-server.pml:28 (state -)	[values: 1?CNF,0]
+ 47:	proc  1 (Emisor:1) oneClient-server.pml:28 (state 6)	[leer?CNF,bitrecibido]
+		queue 1 (haciaE): 
+		Emisor(1):bitrecibido = 0
+		queue 1 (Emisor(1):leer): 
+
+ 48:	proc  1 (Emisor:1) oneClient-server.pml:29 (state 7)	[bitenvio = (1-bitenvio)]
+		Emisor(1):bitenvio = 1
+
+ 49:	proc  2 (Receptor:1) oneClient-server.pml:65 (state 13)	[.(goto)]
+
+ 50:	proc  1 (Emisor:1) oneClient-server.pml:30 (state 8)	[elems = (elems+1)]
+		queue 2 (haciaR): 
+		elems = 3
+		queue 2 (Emisor(1):escr): 
+
+-------------
+depth-limit (-u50 steps) reached
+#processes: 3
+		queue 1 (haciaE): 
+		queue 2 (haciaR): 
+		fallado = 0
+		elems = 3
+		file[0] = 3
+		file[1] = 5
+		file[2] = 1
+		file[3] = 6
+		miArch[0] = 3
+		miArch[1] = 5
+		miArch[2] = 1
+		miArch[3] = 0
+		m = 3
+ 50:	proc  2 (Receptor:1) oneClient-server.pml:53 (state 12)
+		queue 2 (Receptor(2):leer): 
+ 50:	proc  1 (Emisor:1) oneClient-server.pml:38 (state 16)
+		queue 2 (Emisor(1):escr): 
+ 50:	proc  0 (:init::1) oneClient-server.pml:80 (state 3)
+3 processes created
