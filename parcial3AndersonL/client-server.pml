@@ -1,5 +1,5 @@
 /* numero de receptores */
-# define R 2
+# define R 3
 /* número de reintentos antes de acabar */	
 # define M 4;
 /* tamaño del archivo  */
@@ -45,15 +45,13 @@ active proctype Emisor () {
 			
 			/* Si aun no han recibido todos el archivo*/
 			if  :: flag < R ->
-				printf("valor del flag %d ",flag);
 				/* envia el mensaje al los receptores*/
 				if :: env ! MENS(file[elems], bitenvio) ->
 					
 					/* se queda leyendo la respuesta */
 					if:: conf ? CNF(bitrecibido) ->
-						bitenvio = 1 - bitenvio;
-						printf("me contestaron, voy a aumentar el flag");
 						flag++;
+						
 					  :: timeout -> printf("me estalle");
 					  						
 					fi
@@ -62,8 +60,8 @@ active proctype Emisor () {
 			
 				/* si el flag ya indica que todos los receptores recibieron ese dato*/
 				::else -> 
-				printf("ya me confirmaron entonces crecere elemento");
 				flag = 0;
+				bitenvio = 1 - bitenvio;
 				elems++;
 			fi 
 		/* el contador de reintentos ya se copo */
@@ -90,20 +88,16 @@ active [ R ] proctype Receptor () {
   	 	/*si lee el mensaje por el canal de envio*/
 		:: env ? MENS(x, bitrecibido) ->
 			/* si es un dato nuevo*/
-			bitanterioir = bitrecibido;
 			if :: bitanterior != bitrecibido -> 
 				miArch[m] = x;
 				m++;
 				/*activa la bandera para decir que ya recibio ese archivo*/
 				bitanterior = bitrecibido
-            	
+				/* envia la confirmacion*/
+         		conf ! CNF(bitrecibido)
             	:: else
          	
-         	fi
-         	/* envia la confirmacion*/
-         	printf("confirma recibido");
-         	conf ! CNF(bitrecibido)
-         	
+         	fi	
 		:: fallado == 1 -> goto recfalla 
 	od;
 	recfalla: skip
