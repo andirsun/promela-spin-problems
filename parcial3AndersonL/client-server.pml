@@ -62,6 +62,9 @@ active proctype Emisor () {
 				::else -> 
 				flag = 0;
 				bitenvio = 1 - bitenvio;
+				/* Coloco el elemento que ya envie en 0 para poder validar mi ltl 4*/
+				file[elems] = 0;
+				/*hago crecer el indice*/
 				elems++;
 			fi 
 		/* el contador de reintentos ya se copo */
@@ -115,3 +118,19 @@ active proctype demonio () {
 
 }
 */
+
+/* Propiedades sin el demonio */
+/* Si un elemento se Envia, finalmente llega a cualquier operador */
+ltl c1 { [] (env?[MENS(file[elems],_)]) -> X<>(conf?[CNF(_)])  }
+/* llega un momento en el que todo el archivo se ha enviado, ya que siempre que mi elems arranca en 0 y los va entregando a los receptores, entonces en algun momento aumentara al ultimo indice del archivo*/
+ltl c2 { [](elems == 0) -> X<>(elems == 3) }
+/* Cualquier receptor recibe los elementos en orden */
+/*ltl c3 { [](elems > 0) -> (file[elems] == miArch[elems])   }*/
+/* Si el emisor va a enviar un elemento del archivo, todos los receptores ya recibieron los elementos anteriores.
+
+	explicacion : la unica forma de que el un elemento de mi archivo sea 0 es por que ya todos recibieron los archivos aterioires y antes de crecer el indice lo pongo en 0
+	asi emulo que cuando ya todos reciben un archivo lo quito del emisor
+ */
+ltl c4 { [](env?[MENS(file[3],_)]) -> (file[2] == 0) }
+
+/* No necesariamente el receptor numero cero recibe siempre el elemento actual antes que el receptor numero 1*/
