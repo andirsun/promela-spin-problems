@@ -1,0 +1,981 @@
+  0:	proc  - (:root:) creates proc  0 (Emisor)
+  0:	proc  - (:root:) creates proc  1 (Receptor)
+  0:	proc  - (:root:) creates proc  2 (Receptor)
+  0:	proc  - (:root:) creates proc  3 (Receptor)
+ltl c1: [] ((! (env?[MENS,file[elems],_])) || (<> (env?[CNF,_])))
+ltl c2: <> ((elems==5))
+spin: nose.pml:0, warning, global, 'int   miArch' variable is never used (other than in print stmnts)
+spin: nose.pml:0, warning, global, 'byte  m' variable is never used (other than in print stmnts)
+  1:	proc  0 (Emisor:1) nose.pml:25 (state 3)	[((elems<4))]
+		queue 1 (env): 
+
+  2:	proc  0 (Emisor:1) nose.pml:44 (state 23)	[(1)]
+		queue 1 (env): 
+
+  3:	proc  0 (Emisor:1) nose.pml:46 (state 25)	[.(goto)]
+
+  4:	proc  0 (Emisor:1) nose.pml:48 (state 29)	[.(goto)]
+		queue 1 (env): 
+
+  5:	proc  0 (Emisor:1) nose.pml:25 (state 3)	[((elems<4))]
+
+  6:	proc  0 (Emisor:1) nose.pml:44 (state 23)	[(1)]
+		queue 1 (env): 
+
+  7:	proc  0 (Emisor:1) nose.pml:46 (state 25)	[.(goto)]
+		queue 1 (env): 
+
+  8:	proc  0 (Emisor:1) nose.pml:48 (state 29)	[.(goto)]
+		queue 1 (env): 
+
+  9:	proc  0 (Emisor:1) nose.pml:25 (state 3)	[((elems<4))]
+
+ 10:	proc  0 (Emisor:1) nose.pml:27 (state -)	[values: 1!MENS,3,0]
+ 10:	proc  0 (Emisor:1) nose.pml:27 (state 4)	[env!MENS,file[elems],bitenvio]
+		queue 1 (env): [MENS,3,0]
+
+ 11:	proc  2 (Receptor:1) nose.pml:58 (state -)	[values: 1?MENS,3,0]
+ 11:	proc  2 (Receptor:1) nose.pml:58 (state 1)	[env?MENS,x,bitrecibido]
+		queue 1 (env): 
+		Receptor(2):x = 3
+		Receptor(2):bitrecibido = 0
+
+ 12:	proc  2 (Receptor:1) nose.pml:59 (state 2)	[((bitanterior!=bitrecibido))]
+
+ 13:	proc  2 (Receptor:1) nose.pml:60 (state 3)	[bitanterior = bitrecibido]
+		Receptor(2):bitanterior = 0
+
+ 14:	proc  2 (Receptor:1) nose.pml:61 (state -)	[values: 2!CNF,0]
+ 14:	proc  2 (Receptor:1) nose.pml:61 (state 4)	[conf!CNF,bitrecibido]
+		queue 2 (conf): [CNF,0]
+		queue 1 (env): 
+
+ 15:	proc  2 (Receptor:1) nose.pml:65 (state 7)	[.(goto)]
+
+ 16:	proc  2 (Receptor:1) nose.pml:67 (state 11)	[.(goto)]
+
+ 17:	proc  0 (Emisor:1) nose.pml:29 (state -)	[values: 2?CNF,0]
+ 17:	proc  0 (Emisor:1) nose.pml:29 (state 5)	[conf?CNF,bitrecibido]
+		queue 2 (conf): 
+		queue 1 (env): 
+		Emisor(0):bitrecibido = 0
+
+ 18:	proc  0 (Emisor:1) nose.pml:30 (state 6)	[contRec = (contRec+1)]
+		Emisor(0):contRec = 1
+
+timeout
+ 19:	proc  0 (Emisor:1) nose.pml:36 (state 11)	[(timeout)]
+		queue 1 (env): 
+
+ 20:	proc  0 (Emisor:1) nose.pml:36 (state 12)	[(1)]
+		queue 1 (env): 
+
+ 21:	proc  0 (Emisor:1) nose.pml:38 (state 14)	[.(goto)]
+
+ 22:	proc  0 (Emisor:1) nose.pml:44 (state 22)	[.(goto)]
+		queue 1 (env): 
+
+ 23:	proc  0 (Emisor:1) nose.pml:46 (state 25)	[.(goto)]
+		queue 1 (env): 
+
+ 24:	proc  0 (Emisor:1) nose.pml:48 (state 29)	[.(goto)]
+		queue 1 (env): 
+
+ 25:	proc  0 (Emisor:1) nose.pml:25 (state 3)	[((elems<4))]
+		queue 1 (env): 
+
+ 26:	proc  0 (Emisor:1) nose.pml:27 (state -)	[values: 1!MENS,3,0]
+ 26:	proc  0 (Emisor:1) nose.pml:27 (state 4)	[env!MENS,file[elems],bitenvio]
+		queue 1 (env): [MENS,3,0]
+
+ 27:	proc  3 (Receptor:1) nose.pml:58 (state -)	[values: 1?MENS,3,0]
+ 27:	proc  3 (Receptor:1) nose.pml:58 (state 1)	[env?MENS,x,bitrecibido]
+		queue 1 (env): 
+		Receptor(3):x = 3
+		Receptor(3):bitrecibido = 0
+
+ 28:	proc  3 (Receptor:1) nose.pml:59 (state 2)	[((bitanterior!=bitrecibido))]
+		queue 2 (conf): 
+
+ 29:	proc  3 (Receptor:1) nose.pml:60 (state 3)	[bitanterior = bitrecibido]
+		queue 2 (conf): 
+		queue 1 (env): 
+		Receptor(3):bitanterior = 0
+
+ 30:	proc  3 (Receptor:1) nose.pml:61 (state -)	[values: 2!CNF,0]
+ 30:	proc  3 (Receptor:1) nose.pml:61 (state 4)	[conf!CNF,bitrecibido]
+		queue 2 (conf): [CNF,0]
+
+ 31:	proc  0 (Emisor:1) nose.pml:29 (state -)	[values: 2?CNF,0]
+ 31:	proc  0 (Emisor:1) nose.pml:29 (state 5)	[conf?CNF,bitrecibido]
+		queue 2 (conf): 
+		Emisor(0):bitrecibido = 0
+
+ 32:	proc  0 (Emisor:1) nose.pml:30 (state 6)	[contRec = (contRec+1)]
+		queue 1 (env): 
+		Emisor(0):contRec = 2
+
+ 33:	proc  3 (Receptor:1) nose.pml:65 (state 7)	[.(goto)]
+		queue 1 (env): 
+
+ 34:	proc  3 (Receptor:1) nose.pml:67 (state 11)	[.(goto)]
+
+timeout
+ 35:	proc  0 (Emisor:1) nose.pml:36 (state 11)	[(timeout)]
+		queue 1 (env): 
+
+ 36:	proc  0 (Emisor:1) nose.pml:36 (state 12)	[(1)]
+		queue 1 (env): 
+
+ 37:	proc  0 (Emisor:1) nose.pml:38 (state 14)	[.(goto)]
+		queue 1 (env): 
+
+ 38:	proc  0 (Emisor:1) nose.pml:44 (state 22)	[.(goto)]
+
+ 39:	proc  0 (Emisor:1) nose.pml:46 (state 25)	[.(goto)]
+		queue 1 (env): 
+
+ 40:	proc  0 (Emisor:1) nose.pml:48 (state 29)	[.(goto)]
+		queue 1 (env): 
+
+ 41:	proc  0 (Emisor:1) nose.pml:25 (state 3)	[((elems<4))]
+		queue 1 (env): 
+
+ 42:	proc  0 (Emisor:1) nose.pml:44 (state 23)	[(1)]
+		queue 1 (env): 
+
+ 43:	proc  0 (Emisor:1) nose.pml:46 (state 25)	[.(goto)]
+
+ 44:	proc  0 (Emisor:1) nose.pml:48 (state 29)	[.(goto)]
+
+ 45:	proc  0 (Emisor:1) nose.pml:25 (state 3)	[((elems<4))]
+		queue 1 (env): 
+
+ 46:	proc  0 (Emisor:1) nose.pml:27 (state -)	[values: 1!MENS,3,0]
+ 46:	proc  0 (Emisor:1) nose.pml:27 (state 4)	[env!MENS,file[elems],bitenvio]
+		queue 1 (env): [MENS,3,0]
+
+ 47:	proc  1 (Receptor:1) nose.pml:58 (state -)	[values: 1?MENS,3,0]
+ 47:	proc  1 (Receptor:1) nose.pml:58 (state 1)	[env?MENS,x,bitrecibido]
+		queue 1 (env): 
+		Receptor(1):x = 3
+		Receptor(1):bitrecibido = 0
+
+ 48:	proc  1 (Receptor:1) nose.pml:59 (state 2)	[((bitanterior!=bitrecibido))]
+		queue 2 (conf): 
+		queue 1 (env): 
+
+ 49:	proc  1 (Receptor:1) nose.pml:60 (state 3)	[bitanterior = bitrecibido]
+		Receptor(1):bitanterior = 0
+
+ 50:	proc  1 (Receptor:1) nose.pml:61 (state -)	[values: 2!CNF,0]
+ 50:	proc  1 (Receptor:1) nose.pml:61 (state 4)	[conf!CNF,bitrecibido]
+		queue 2 (conf): [CNF,0]
+
+ 51:	proc  1 (Receptor:1) nose.pml:65 (state 7)	[.(goto)]
+		queue 1 (env): 
+
+ 52:	proc  0 (Emisor:1) nose.pml:29 (state -)	[values: 2?CNF,0]
+ 52:	proc  0 (Emisor:1) nose.pml:29 (state 5)	[conf?CNF,bitrecibido]
+		queue 2 (conf): 
+		Emisor(0):bitrecibido = 0
+
+ 53:	proc  1 (Receptor:1) nose.pml:67 (state 11)	[.(goto)]
+
+ 54:	proc  0 (Emisor:1) nose.pml:30 (state 6)	[contRec = (contRec+1)]
+		queue 1 (env): 
+		Emisor(0):contRec = 3
+
+ 55:	proc  0 (Emisor:1) nose.pml:32 (state 7)	[((contRec==3))]
+		queue 1 (env): 
+
+ 56:	proc  0 (Emisor:1) nose.pml:33 (state 8)	[bitenvio = (1-bitenvio)]
+		queue 1 (env): 
+		Emisor(0):bitenvio = 1
+
+ 57:	proc  0 (Emisor:1) nose.pml:34 (state 9)	[elems = (elems+1)]
+		elems = 1
+
+ 58:	proc  0 (Emisor:1) nose.pml:35 (state 10)	[contRec = 0]
+		queue 1 (env): 
+		Emisor(0):contRec = 0
+
+ 59:	proc  0 (Emisor:1) nose.pml:38 (state 14)	[.(goto)]
+		queue 1 (env): 
+
+ 60:	proc  0 (Emisor:1) nose.pml:44 (state 22)	[.(goto)]
+		queue 1 (env): 
+
+ 61:	proc  0 (Emisor:1) nose.pml:46 (state 25)	[.(goto)]
+		queue 1 (env): 
+
+ 62:	proc  0 (Emisor:1) nose.pml:48 (state 29)	[.(goto)]
+		queue 1 (env): 
+
+ 63:	proc  0 (Emisor:1) nose.pml:25 (state 3)	[((elems<4))]
+		queue 1 (env): 
+
+ 64:	proc  0 (Emisor:1) nose.pml:27 (state -)	[values: 1!MENS,5,1]
+ 64:	proc  0 (Emisor:1) nose.pml:27 (state 4)	[env!MENS,file[elems],bitenvio]
+		queue 1 (env): [MENS,5,1]
+
+ 65:	proc  3 (Receptor:1) nose.pml:58 (state -)	[values: 1?MENS,5,1]
+ 65:	proc  3 (Receptor:1) nose.pml:58 (state 1)	[env?MENS,x,bitrecibido]
+		queue 1 (env): 
+		Receptor(3):x = 5
+		Receptor(3):bitrecibido = 1
+
+ 66:	proc  3 (Receptor:1) nose.pml:59 (state 2)	[((bitanterior!=bitrecibido))]
+
+ 67:	proc  3 (Receptor:1) nose.pml:60 (state 3)	[bitanterior = bitrecibido]
+		queue 2 (conf): 
+		queue 1 (env): 
+		Receptor(3):bitanterior = 1
+
+ 68:	proc  3 (Receptor:1) nose.pml:61 (state -)	[values: 2!CNF,1]
+ 68:	proc  3 (Receptor:1) nose.pml:61 (state 4)	[conf!CNF,bitrecibido]
+		queue 2 (conf): [CNF,1]
+		queue 1 (env): 
+
+ 69:	proc  3 (Receptor:1) nose.pml:65 (state 7)	[.(goto)]
+
+ 70:	proc  0 (Emisor:1) nose.pml:29 (state -)	[values: 2?CNF,1]
+ 70:	proc  0 (Emisor:1) nose.pml:29 (state 5)	[conf?CNF,bitrecibido]
+		queue 2 (conf): 
+		queue 1 (env): 
+		Emisor(0):bitrecibido = 1
+
+ 71:	proc  3 (Receptor:1) nose.pml:67 (state 11)	[.(goto)]
+		queue 1 (env): 
+
+ 72:	proc  0 (Emisor:1) nose.pml:30 (state 6)	[contRec = (contRec+1)]
+		queue 1 (env): 
+		Emisor(0):contRec = 1
+
+timeout
+ 73:	proc  0 (Emisor:1) nose.pml:36 (state 11)	[(timeout)]
+		queue 1 (env): 
+
+ 74:	proc  0 (Emisor:1) nose.pml:36 (state 12)	[(1)]
+
+ 75:	proc  0 (Emisor:1) nose.pml:38 (state 14)	[.(goto)]
+		queue 1 (env): 
+
+ 76:	proc  0 (Emisor:1) nose.pml:44 (state 22)	[.(goto)]
+
+ 77:	proc  0 (Emisor:1) nose.pml:46 (state 25)	[.(goto)]
+
+ 78:	proc  0 (Emisor:1) nose.pml:48 (state 29)	[.(goto)]
+		queue 1 (env): 
+
+ 79:	proc  0 (Emisor:1) nose.pml:25 (state 3)	[((elems<4))]
+		queue 1 (env): 
+
+ 80:	proc  0 (Emisor:1) nose.pml:27 (state -)	[values: 1!MENS,5,1]
+ 80:	proc  0 (Emisor:1) nose.pml:27 (state 4)	[env!MENS,file[elems],bitenvio]
+		queue 1 (env): [MENS,5,1]
+
+ 81:	proc  1 (Receptor:1) nose.pml:58 (state -)	[values: 1?MENS,5,1]
+ 81:	proc  1 (Receptor:1) nose.pml:58 (state 1)	[env?MENS,x,bitrecibido]
+		queue 1 (env): 
+		Receptor(1):x = 5
+		Receptor(1):bitrecibido = 1
+
+ 82:	proc  1 (Receptor:1) nose.pml:59 (state 2)	[((bitanterior!=bitrecibido))]
+
+ 83:	proc  1 (Receptor:1) nose.pml:60 (state 3)	[bitanterior = bitrecibido]
+		queue 1 (env): 
+		Receptor(1):bitanterior = 1
+
+ 84:	proc  1 (Receptor:1) nose.pml:61 (state -)	[values: 2!CNF,1]
+ 84:	proc  1 (Receptor:1) nose.pml:61 (state 4)	[conf!CNF,bitrecibido]
+		queue 2 (conf): [CNF,1]
+		queue 1 (env): 
+
+ 85:	proc  0 (Emisor:1) nose.pml:29 (state -)	[values: 2?CNF,1]
+ 85:	proc  0 (Emisor:1) nose.pml:29 (state 5)	[conf?CNF,bitrecibido]
+		queue 2 (conf): 
+		queue 1 (env): 
+		Emisor(0):bitrecibido = 1
+
+ 86:	proc  1 (Receptor:1) nose.pml:65 (state 7)	[.(goto)]
+		queue 1 (env): 
+
+ 87:	proc  1 (Receptor:1) nose.pml:67 (state 11)	[.(goto)]
+
+ 88:	proc  0 (Emisor:1) nose.pml:30 (state 6)	[contRec = (contRec+1)]
+		queue 1 (env): 
+		Emisor(0):contRec = 2
+
+timeout
+ 89:	proc  0 (Emisor:1) nose.pml:36 (state 11)	[(timeout)]
+		queue 1 (env): 
+
+ 90:	proc  0 (Emisor:1) nose.pml:36 (state 12)	[(1)]
+		queue 1 (env): 
+
+ 91:	proc  0 (Emisor:1) nose.pml:38 (state 14)	[.(goto)]
+
+ 92:	proc  0 (Emisor:1) nose.pml:44 (state 22)	[.(goto)]
+		queue 1 (env): 
+
+ 93:	proc  0 (Emisor:1) nose.pml:46 (state 25)	[.(goto)]
+		queue 1 (env): 
+
+ 94:	proc  0 (Emisor:1) nose.pml:48 (state 29)	[.(goto)]
+		queue 1 (env): 
+
+ 95:	proc  0 (Emisor:1) nose.pml:25 (state 3)	[((elems<4))]
+
+ 96:	proc  0 (Emisor:1) nose.pml:44 (state 23)	[(1)]
+
+ 97:	proc  0 (Emisor:1) nose.pml:46 (state 25)	[.(goto)]
+
+ 98:	proc  0 (Emisor:1) nose.pml:48 (state 29)	[.(goto)]
+
+ 99:	proc  0 (Emisor:1) nose.pml:25 (state 3)	[((elems<4))]
+		queue 1 (env): 
+
+100:	proc  0 (Emisor:1) nose.pml:27 (state -)	[values: 1!MENS,5,1]
+100:	proc  0 (Emisor:1) nose.pml:27 (state 4)	[env!MENS,file[elems],bitenvio]
+		queue 1 (env): [MENS,5,1]
+
+101:	proc  2 (Receptor:1) nose.pml:58 (state -)	[values: 1?MENS,5,1]
+101:	proc  2 (Receptor:1) nose.pml:58 (state 1)	[env?MENS,x,bitrecibido]
+		queue 2 (conf): 
+		queue 1 (env): 
+		Receptor(2):x = 5
+		Receptor(2):bitrecibido = 1
+
+102:	proc  2 (Receptor:1) nose.pml:59 (state 2)	[((bitanterior!=bitrecibido))]
+		queue 2 (conf): 
+		queue 1 (env): 
+
+103:	proc  2 (Receptor:1) nose.pml:60 (state 3)	[bitanterior = bitrecibido]
+		queue 2 (conf): 
+		queue 1 (env): 
+		Receptor(2):bitanterior = 1
+
+104:	proc  2 (Receptor:1) nose.pml:61 (state -)	[values: 2!CNF,1]
+104:	proc  2 (Receptor:1) nose.pml:61 (state 4)	[conf!CNF,bitrecibido]
+		queue 2 (conf): [CNF,1]
+		queue 1 (env): 
+
+105:	proc  2 (Receptor:1) nose.pml:65 (state 7)	[.(goto)]
+
+106:	proc  0 (Emisor:1) nose.pml:29 (state -)	[values: 2?CNF,1]
+106:	proc  0 (Emisor:1) nose.pml:29 (state 5)	[conf?CNF,bitrecibido]
+		queue 2 (conf): 
+		Emisor(0):bitrecibido = 1
+
+107:	proc  0 (Emisor:1) nose.pml:30 (state 6)	[contRec = (contRec+1)]
+		Emisor(0):contRec = 3
+
+108:	proc  2 (Receptor:1) nose.pml:67 (state 11)	[.(goto)]
+
+109:	proc  0 (Emisor:1) nose.pml:32 (state 7)	[((contRec==3))]
+		queue 1 (env): 
+
+110:	proc  0 (Emisor:1) nose.pml:33 (state 8)	[bitenvio = (1-bitenvio)]
+		Emisor(0):bitenvio = 0
+
+111:	proc  0 (Emisor:1) nose.pml:34 (state 9)	[elems = (elems+1)]
+		elems = 2
+
+112:	proc  0 (Emisor:1) nose.pml:35 (state 10)	[contRec = 0]
+		queue 1 (env): 
+		Emisor(0):contRec = 0
+
+113:	proc  0 (Emisor:1) nose.pml:38 (state 14)	[.(goto)]
+		queue 1 (env): 
+
+114:	proc  0 (Emisor:1) nose.pml:44 (state 22)	[.(goto)]
+		queue 1 (env): 
+
+115:	proc  0 (Emisor:1) nose.pml:46 (state 25)	[.(goto)]
+
+116:	proc  0 (Emisor:1) nose.pml:48 (state 29)	[.(goto)]
+		queue 1 (env): 
+
+117:	proc  0 (Emisor:1) nose.pml:25 (state 3)	[((elems<4))]
+		queue 1 (env): 
+
+118:	proc  0 (Emisor:1) nose.pml:27 (state -)	[values: 1!MENS,1,0]
+118:	proc  0 (Emisor:1) nose.pml:27 (state 4)	[env!MENS,file[elems],bitenvio]
+		queue 1 (env): [MENS,1,0]
+
+119:	proc  2 (Receptor:1) nose.pml:58 (state -)	[values: 1?MENS,1,0]
+119:	proc  2 (Receptor:1) nose.pml:58 (state 1)	[env?MENS,x,bitrecibido]
+		queue 2 (conf): 
+		queue 1 (env): 
+		Receptor(2):x = 1
+		Receptor(2):bitrecibido = 0
+
+120:	proc  2 (Receptor:1) nose.pml:59 (state 2)	[((bitanterior!=bitrecibido))]
+		queue 1 (env): 
+
+121:	proc  2 (Receptor:1) nose.pml:60 (state 3)	[bitanterior = bitrecibido]
+		queue 2 (conf): 
+		Receptor(2):bitanterior = 0
+
+122:	proc  2 (Receptor:1) nose.pml:61 (state -)	[values: 2!CNF,0]
+122:	proc  2 (Receptor:1) nose.pml:61 (state 4)	[conf!CNF,bitrecibido]
+		queue 2 (conf): [CNF,0]
+		queue 1 (env): 
+
+123:	proc  2 (Receptor:1) nose.pml:65 (state 7)	[.(goto)]
+		queue 1 (env): 
+
+124:	proc  2 (Receptor:1) nose.pml:67 (state 11)	[.(goto)]
+
+125:	proc  0 (Emisor:1) nose.pml:29 (state -)	[values: 2?CNF,0]
+125:	proc  0 (Emisor:1) nose.pml:29 (state 5)	[conf?CNF,bitrecibido]
+		queue 2 (conf): 
+		queue 1 (env): 
+		Emisor(0):bitrecibido = 0
+
+126:	proc  0 (Emisor:1) nose.pml:30 (state 6)	[contRec = (contRec+1)]
+		queue 1 (env): 
+		Emisor(0):contRec = 1
+
+timeout
+127:	proc  0 (Emisor:1) nose.pml:36 (state 11)	[(timeout)]
+		queue 1 (env): 
+
+128:	proc  0 (Emisor:1) nose.pml:36 (state 12)	[(1)]
+		queue 1 (env): 
+
+129:	proc  0 (Emisor:1) nose.pml:38 (state 14)	[.(goto)]
+		queue 1 (env): 
+
+130:	proc  0 (Emisor:1) nose.pml:44 (state 22)	[.(goto)]
+		queue 1 (env): 
+
+131:	proc  0 (Emisor:1) nose.pml:46 (state 25)	[.(goto)]
+		queue 1 (env): 
+
+132:	proc  0 (Emisor:1) nose.pml:48 (state 29)	[.(goto)]
+		queue 1 (env): 
+
+133:	proc  0 (Emisor:1) nose.pml:25 (state 3)	[((elems<4))]
+
+134:	proc  0 (Emisor:1) nose.pml:27 (state -)	[values: 1!MENS,1,0]
+134:	proc  0 (Emisor:1) nose.pml:27 (state 4)	[env!MENS,file[elems],bitenvio]
+		queue 1 (env): [MENS,1,0]
+
+135:	proc  1 (Receptor:1) nose.pml:58 (state -)	[values: 1?MENS,1,0]
+135:	proc  1 (Receptor:1) nose.pml:58 (state 1)	[env?MENS,x,bitrecibido]
+		queue 1 (env): 
+		Receptor(1):x = 1
+		Receptor(1):bitrecibido = 0
+
+136:	proc  1 (Receptor:1) nose.pml:59 (state 2)	[((bitanterior!=bitrecibido))]
+		queue 2 (conf): 
+		queue 1 (env): 
+
+137:	proc  1 (Receptor:1) nose.pml:60 (state 3)	[bitanterior = bitrecibido]
+		queue 1 (env): 
+		Receptor(1):bitanterior = 0
+
+138:	proc  1 (Receptor:1) nose.pml:61 (state -)	[values: 2!CNF,0]
+138:	proc  1 (Receptor:1) nose.pml:61 (state 4)	[conf!CNF,bitrecibido]
+		queue 2 (conf): [CNF,0]
+		queue 1 (env): 
+
+139:	proc  0 (Emisor:1) nose.pml:29 (state -)	[values: 2?CNF,0]
+139:	proc  0 (Emisor:1) nose.pml:29 (state 5)	[conf?CNF,bitrecibido]
+		queue 2 (conf): 
+		Emisor(0):bitrecibido = 0
+
+140:	proc  1 (Receptor:1) nose.pml:65 (state 7)	[.(goto)]
+
+141:	proc  0 (Emisor:1) nose.pml:30 (state 6)	[contRec = (contRec+1)]
+		Emisor(0):contRec = 2
+
+142:	proc  1 (Receptor:1) nose.pml:67 (state 11)	[.(goto)]
+		queue 1 (env): 
+
+timeout
+143:	proc  0 (Emisor:1) nose.pml:36 (state 11)	[(timeout)]
+		queue 1 (env): 
+
+144:	proc  0 (Emisor:1) nose.pml:36 (state 12)	[(1)]
+		queue 1 (env): 
+
+145:	proc  0 (Emisor:1) nose.pml:38 (state 14)	[.(goto)]
+		queue 1 (env): 
+
+146:	proc  0 (Emisor:1) nose.pml:44 (state 22)	[.(goto)]
+		queue 1 (env): 
+
+147:	proc  0 (Emisor:1) nose.pml:46 (state 25)	[.(goto)]
+		queue 1 (env): 
+
+148:	proc  0 (Emisor:1) nose.pml:48 (state 29)	[.(goto)]
+		queue 1 (env): 
+
+149:	proc  0 (Emisor:1) nose.pml:25 (state 3)	[((elems<4))]
+		queue 1 (env): 
+
+150:	proc  0 (Emisor:1) nose.pml:44 (state 23)	[(1)]
+
+151:	proc  0 (Emisor:1) nose.pml:46 (state 25)	[.(goto)]
+		queue 1 (env): 
+
+152:	proc  0 (Emisor:1) nose.pml:48 (state 29)	[.(goto)]
+
+153:	proc  0 (Emisor:1) nose.pml:25 (state 3)	[((elems<4))]
+		queue 1 (env): 
+
+154:	proc  0 (Emisor:1) nose.pml:44 (state 23)	[(1)]
+
+155:	proc  0 (Emisor:1) nose.pml:46 (state 25)	[.(goto)]
+		queue 1 (env): 
+
+156:	proc  0 (Emisor:1) nose.pml:48 (state 29)	[.(goto)]
+		queue 1 (env): 
+
+157:	proc  0 (Emisor:1) nose.pml:25 (state 3)	[((elems<4))]
+
+158:	proc  0 (Emisor:1) nose.pml:44 (state 23)	[(1)]
+
+159:	proc  0 (Emisor:1) nose.pml:46 (state 25)	[.(goto)]
+		queue 1 (env): 
+
+160:	proc  0 (Emisor:1) nose.pml:48 (state 29)	[.(goto)]
+		queue 1 (env): 
+
+161:	proc  0 (Emisor:1) nose.pml:25 (state 3)	[((elems<4))]
+		queue 1 (env): 
+
+162:	proc  0 (Emisor:1) nose.pml:44 (state 23)	[(1)]
+		queue 1 (env): 
+
+163:	proc  0 (Emisor:1) nose.pml:46 (state 25)	[.(goto)]
+		queue 1 (env): 
+
+164:	proc  0 (Emisor:1) nose.pml:48 (state 29)	[.(goto)]
+		queue 1 (env): 
+
+165:	proc  0 (Emisor:1) nose.pml:25 (state 3)	[((elems<4))]
+		queue 1 (env): 
+
+166:	proc  0 (Emisor:1) nose.pml:44 (state 23)	[(1)]
+		queue 1 (env): 
+
+167:	proc  0 (Emisor:1) nose.pml:46 (state 25)	[.(goto)]
+		queue 1 (env): 
+
+168:	proc  0 (Emisor:1) nose.pml:48 (state 29)	[.(goto)]
+
+169:	proc  0 (Emisor:1) nose.pml:25 (state 3)	[((elems<4))]
+		queue 1 (env): 
+
+170:	proc  0 (Emisor:1) nose.pml:27 (state -)	[values: 1!MENS,1,0]
+170:	proc  0 (Emisor:1) nose.pml:27 (state 4)	[env!MENS,file[elems],bitenvio]
+		queue 1 (env): [MENS,1,0]
+
+171:	proc  1 (Receptor:1) nose.pml:58 (state -)	[values: 1?MENS,1,0]
+171:	proc  1 (Receptor:1) nose.pml:58 (state 1)	[env?MENS,x,bitrecibido]
+		queue 2 (conf): 
+		queue 1 (env): 
+		Receptor(1):x = 1
+		Receptor(1):bitrecibido = 0
+
+172:	proc  1 (Receptor:1) nose.pml:62 (state 5)	[else]
+		queue 2 (conf): 
+
+173:	proc  1 (Receptor:1) nose.pml:65 (state 7)	[.(goto)]
+		queue 2 (conf): 
+		queue 1 (env): 
+
+174:	proc  1 (Receptor:1) nose.pml:67 (state 11)	[.(goto)]
+		queue 2 (conf): 
+		queue 1 (env): 
+
+timeout
+175:	proc  0 (Emisor:1) nose.pml:38 (state 15)	[(timeout)]
+		queue 2 (conf): 
+		queue 1 (env): 
+
+176:	proc  0 (Emisor:1) nose.pml:39 (state 16)	[((cont<20))]
+		queue 1 (env): 
+
+177:	proc  0 (Emisor:1) nose.pml:39 (state 17)	[cont = (cont+1)]
+		Emisor(0):cont = 1
+
+178:	proc  0 (Emisor:1) nose.pml:42 (state 20)	[.(goto)]
+		queue 1 (env): 
+
+179:	proc  0 (Emisor:1) nose.pml:44 (state 22)	[.(goto)]
+		queue 1 (env): 
+
+180:	proc  0 (Emisor:1) nose.pml:46 (state 25)	[.(goto)]
+		queue 1 (env): 
+
+181:	proc  0 (Emisor:1) nose.pml:48 (state 29)	[.(goto)]
+		queue 1 (env): 
+
+182:	proc  0 (Emisor:1) nose.pml:25 (state 3)	[((elems<4))]
+		queue 1 (env): 
+
+183:	proc  0 (Emisor:1) nose.pml:44 (state 23)	[(1)]
+
+184:	proc  0 (Emisor:1) nose.pml:46 (state 25)	[.(goto)]
+		queue 1 (env): 
+
+185:	proc  0 (Emisor:1) nose.pml:48 (state 29)	[.(goto)]
+
+186:	proc  0 (Emisor:1) nose.pml:25 (state 3)	[((elems<4))]
+		queue 1 (env): 
+
+187:	proc  0 (Emisor:1) nose.pml:27 (state -)	[values: 1!MENS,1,0]
+187:	proc  0 (Emisor:1) nose.pml:27 (state 4)	[env!MENS,file[elems],bitenvio]
+		queue 1 (env): [MENS,1,0]
+
+188:	proc  3 (Receptor:1) nose.pml:58 (state -)	[values: 1?MENS,1,0]
+188:	proc  3 (Receptor:1) nose.pml:58 (state 1)	[env?MENS,x,bitrecibido]
+		queue 1 (env): 
+		Receptor(3):x = 1
+		Receptor(3):bitrecibido = 0
+
+189:	proc  3 (Receptor:1) nose.pml:59 (state 2)	[((bitanterior!=bitrecibido))]
+		queue 2 (conf): 
+		queue 1 (env): 
+
+190:	proc  3 (Receptor:1) nose.pml:60 (state 3)	[bitanterior = bitrecibido]
+		queue 1 (env): 
+		Receptor(3):bitanterior = 0
+
+191:	proc  3 (Receptor:1) nose.pml:61 (state -)	[values: 2!CNF,0]
+191:	proc  3 (Receptor:1) nose.pml:61 (state 4)	[conf!CNF,bitrecibido]
+		queue 2 (conf): [CNF,0]
+		queue 1 (env): 
+
+192:	proc  0 (Emisor:1) nose.pml:29 (state -)	[values: 2?CNF,0]
+192:	proc  0 (Emisor:1) nose.pml:29 (state 5)	[conf?CNF,bitrecibido]
+		queue 2 (conf): 
+		Emisor(0):bitrecibido = 0
+
+193:	proc  0 (Emisor:1) nose.pml:30 (state 6)	[contRec = (contRec+1)]
+		queue 1 (env): 
+		Emisor(0):contRec = 3
+
+194:	proc  3 (Receptor:1) nose.pml:65 (state 7)	[.(goto)]
+		queue 1 (env): 
+
+195:	proc  0 (Emisor:1) nose.pml:32 (state 7)	[((contRec==3))]
+
+196:	proc  3 (Receptor:1) nose.pml:67 (state 11)	[.(goto)]
+		queue 1 (env): 
+
+197:	proc  0 (Emisor:1) nose.pml:33 (state 8)	[bitenvio = (1-bitenvio)]
+		queue 1 (env): 
+		Emisor(0):bitenvio = 1
+
+198:	proc  0 (Emisor:1) nose.pml:34 (state 9)	[elems = (elems+1)]
+		queue 1 (env): 
+		elems = 3
+
+199:	proc  0 (Emisor:1) nose.pml:35 (state 10)	[contRec = 0]
+		queue 1 (env): 
+		Emisor(0):contRec = 0
+
+200:	proc  0 (Emisor:1) nose.pml:38 (state 14)	[.(goto)]
+
+201:	proc  0 (Emisor:1) nose.pml:44 (state 22)	[.(goto)]
+
+202:	proc  0 (Emisor:1) nose.pml:46 (state 25)	[.(goto)]
+		queue 1 (env): 
+
+203:	proc  0 (Emisor:1) nose.pml:48 (state 29)	[.(goto)]
+		queue 1 (env): 
+
+204:	proc  0 (Emisor:1) nose.pml:25 (state 3)	[((elems<4))]
+
+205:	proc  0 (Emisor:1) nose.pml:27 (state -)	[values: 1!MENS,6,1]
+205:	proc  0 (Emisor:1) nose.pml:27 (state 4)	[env!MENS,file[elems],bitenvio]
+		queue 1 (env): [MENS,6,1]
+
+206:	proc  1 (Receptor:1) nose.pml:58 (state -)	[values: 1?MENS,6,1]
+206:	proc  1 (Receptor:1) nose.pml:58 (state 1)	[env?MENS,x,bitrecibido]
+		queue 1 (env): 
+		Receptor(1):x = 6
+		Receptor(1):bitrecibido = 1
+
+207:	proc  1 (Receptor:1) nose.pml:59 (state 2)	[((bitanterior!=bitrecibido))]
+		queue 2 (conf): 
+		queue 1 (env): 
+
+208:	proc  1 (Receptor:1) nose.pml:60 (state 3)	[bitanterior = bitrecibido]
+		queue 2 (conf): 
+		queue 1 (env): 
+		Receptor(1):bitanterior = 1
+
+209:	proc  1 (Receptor:1) nose.pml:61 (state -)	[values: 2!CNF,1]
+209:	proc  1 (Receptor:1) nose.pml:61 (state 4)	[conf!CNF,bitrecibido]
+		queue 2 (conf): [CNF,1]
+		queue 1 (env): 
+
+210:	proc  1 (Receptor:1) nose.pml:65 (state 7)	[.(goto)]
+
+211:	proc  0 (Emisor:1) nose.pml:29 (state -)	[values: 2?CNF,1]
+211:	proc  0 (Emisor:1) nose.pml:29 (state 5)	[conf?CNF,bitrecibido]
+		queue 2 (conf): 
+		queue 1 (env): 
+		Emisor(0):bitrecibido = 1
+
+212:	proc  0 (Emisor:1) nose.pml:30 (state 6)	[contRec = (contRec+1)]
+		Emisor(0):contRec = 1
+
+213:	proc  1 (Receptor:1) nose.pml:67 (state 11)	[.(goto)]
+		queue 1 (env): 
+
+timeout
+214:	proc  0 (Emisor:1) nose.pml:36 (state 11)	[(timeout)]
+		queue 1 (env): 
+
+215:	proc  0 (Emisor:1) nose.pml:36 (state 12)	[(1)]
+
+216:	proc  0 (Emisor:1) nose.pml:38 (state 14)	[.(goto)]
+		queue 1 (env): 
+
+217:	proc  0 (Emisor:1) nose.pml:44 (state 22)	[.(goto)]
+		queue 1 (env): 
+
+218:	proc  0 (Emisor:1) nose.pml:46 (state 25)	[.(goto)]
+		queue 1 (env): 
+
+219:	proc  0 (Emisor:1) nose.pml:48 (state 29)	[.(goto)]
+		queue 1 (env): 
+
+220:	proc  0 (Emisor:1) nose.pml:25 (state 3)	[((elems<4))]
+		queue 1 (env): 
+
+221:	proc  0 (Emisor:1) nose.pml:44 (state 23)	[(1)]
+
+222:	proc  0 (Emisor:1) nose.pml:46 (state 25)	[.(goto)]
+		queue 1 (env): 
+
+223:	proc  0 (Emisor:1) nose.pml:48 (state 29)	[.(goto)]
+		queue 1 (env): 
+
+224:	proc  0 (Emisor:1) nose.pml:25 (state 3)	[((elems<4))]
+		queue 1 (env): 
+
+225:	proc  0 (Emisor:1) nose.pml:27 (state -)	[values: 1!MENS,6,1]
+225:	proc  0 (Emisor:1) nose.pml:27 (state 4)	[env!MENS,file[elems],bitenvio]
+		queue 1 (env): [MENS,6,1]
+
+226:	proc  2 (Receptor:1) nose.pml:58 (state -)	[values: 1?MENS,6,1]
+226:	proc  2 (Receptor:1) nose.pml:58 (state 1)	[env?MENS,x,bitrecibido]
+		queue 1 (env): 
+		Receptor(2):x = 6
+		Receptor(2):bitrecibido = 1
+
+227:	proc  2 (Receptor:1) nose.pml:59 (state 2)	[((bitanterior!=bitrecibido))]
+
+228:	proc  2 (Receptor:1) nose.pml:60 (state 3)	[bitanterior = bitrecibido]
+		queue 2 (conf): 
+		Receptor(2):bitanterior = 1
+
+229:	proc  2 (Receptor:1) nose.pml:61 (state -)	[values: 2!CNF,1]
+229:	proc  2 (Receptor:1) nose.pml:61 (state 4)	[conf!CNF,bitrecibido]
+		queue 2 (conf): [CNF,1]
+		queue 1 (env): 
+
+230:	proc  0 (Emisor:1) nose.pml:29 (state -)	[values: 2?CNF,1]
+230:	proc  0 (Emisor:1) nose.pml:29 (state 5)	[conf?CNF,bitrecibido]
+		queue 2 (conf): 
+		Emisor(0):bitrecibido = 1
+
+231:	proc  0 (Emisor:1) nose.pml:30 (state 6)	[contRec = (contRec+1)]
+		queue 1 (env): 
+		Emisor(0):contRec = 2
+
+232:	proc  2 (Receptor:1) nose.pml:65 (state 7)	[.(goto)]
+
+233:	proc  2 (Receptor:1) nose.pml:67 (state 11)	[.(goto)]
+		queue 1 (env): 
+
+timeout
+234:	proc  0 (Emisor:1) nose.pml:36 (state 11)	[(timeout)]
+		queue 1 (env): 
+
+235:	proc  0 (Emisor:1) nose.pml:36 (state 12)	[(1)]
+		queue 1 (env): 
+
+236:	proc  0 (Emisor:1) nose.pml:38 (state 14)	[.(goto)]
+
+237:	proc  0 (Emisor:1) nose.pml:44 (state 22)	[.(goto)]
+		queue 1 (env): 
+
+238:	proc  0 (Emisor:1) nose.pml:46 (state 25)	[.(goto)]
+		queue 1 (env): 
+
+239:	proc  0 (Emisor:1) nose.pml:48 (state 29)	[.(goto)]
+		queue 1 (env): 
+
+240:	proc  0 (Emisor:1) nose.pml:25 (state 3)	[((elems<4))]
+		queue 1 (env): 
+
+241:	proc  0 (Emisor:1) nose.pml:44 (state 23)	[(1)]
+
+242:	proc  0 (Emisor:1) nose.pml:46 (state 25)	[.(goto)]
+		queue 1 (env): 
+
+243:	proc  0 (Emisor:1) nose.pml:48 (state 29)	[.(goto)]
+		queue 1 (env): 
+
+244:	proc  0 (Emisor:1) nose.pml:25 (state 3)	[((elems<4))]
+
+245:	proc  0 (Emisor:1) nose.pml:44 (state 23)	[(1)]
+		queue 1 (env): 
+
+246:	proc  0 (Emisor:1) nose.pml:46 (state 25)	[.(goto)]
+
+247:	proc  0 (Emisor:1) nose.pml:48 (state 29)	[.(goto)]
+		queue 1 (env): 
+
+248:	proc  0 (Emisor:1) nose.pml:25 (state 3)	[((elems<4))]
+		queue 1 (env): 
+
+249:	proc  0 (Emisor:1) nose.pml:27 (state -)	[values: 1!MENS,6,1]
+249:	proc  0 (Emisor:1) nose.pml:27 (state 4)	[env!MENS,file[elems],bitenvio]
+		queue 1 (env): [MENS,6,1]
+
+250:	proc  1 (Receptor:1) nose.pml:58 (state -)	[values: 1?MENS,6,1]
+250:	proc  1 (Receptor:1) nose.pml:58 (state 1)	[env?MENS,x,bitrecibido]
+		queue 2 (conf): 
+		queue 1 (env): 
+		Receptor(1):x = 6
+		Receptor(1):bitrecibido = 1
+
+251:	proc  1 (Receptor:1) nose.pml:62 (state 5)	[else]
+
+252:	proc  1 (Receptor:1) nose.pml:65 (state 7)	[.(goto)]
+		queue 2 (conf): 
+		queue 1 (env): 
+
+253:	proc  1 (Receptor:1) nose.pml:67 (state 11)	[.(goto)]
+		queue 1 (env): 
+
+timeout
+254:	proc  0 (Emisor:1) nose.pml:38 (state 15)	[(timeout)]
+		queue 2 (conf): 
+		queue 1 (env): 
+
+255:	proc  0 (Emisor:1) nose.pml:39 (state 16)	[((cont<20))]
+
+256:	proc  0 (Emisor:1) nose.pml:39 (state 17)	[cont = (cont+1)]
+		Emisor(0):cont = 2
+
+257:	proc  0 (Emisor:1) nose.pml:42 (state 20)	[.(goto)]
+		queue 1 (env): 
+
+258:	proc  0 (Emisor:1) nose.pml:44 (state 22)	[.(goto)]
+		queue 1 (env): 
+
+259:	proc  0 (Emisor:1) nose.pml:46 (state 25)	[.(goto)]
+
+260:	proc  0 (Emisor:1) nose.pml:48 (state 29)	[.(goto)]
+		queue 1 (env): 
+
+261:	proc  0 (Emisor:1) nose.pml:25 (state 3)	[((elems<4))]
+		queue 1 (env): 
+
+262:	proc  0 (Emisor:1) nose.pml:27 (state -)	[values: 1!MENS,6,1]
+262:	proc  0 (Emisor:1) nose.pml:27 (state 4)	[env!MENS,file[elems],bitenvio]
+		queue 1 (env): [MENS,6,1]
+
+263:	proc  3 (Receptor:1) nose.pml:58 (state -)	[values: 1?MENS,6,1]
+263:	proc  3 (Receptor:1) nose.pml:58 (state 1)	[env?MENS,x,bitrecibido]
+		queue 1 (env): 
+		Receptor(3):x = 6
+		Receptor(3):bitrecibido = 1
+
+264:	proc  3 (Receptor:1) nose.pml:59 (state 2)	[((bitanterior!=bitrecibido))]
+
+265:	proc  3 (Receptor:1) nose.pml:60 (state 3)	[bitanterior = bitrecibido]
+		Receptor(3):bitanterior = 1
+
+266:	proc  3 (Receptor:1) nose.pml:61 (state -)	[values: 2!CNF,1]
+266:	proc  3 (Receptor:1) nose.pml:61 (state 4)	[conf!CNF,bitrecibido]
+		queue 2 (conf): [CNF,1]
+		queue 1 (env): 
+
+267:	proc  0 (Emisor:1) nose.pml:29 (state -)	[values: 2?CNF,1]
+267:	proc  0 (Emisor:1) nose.pml:29 (state 5)	[conf?CNF,bitrecibido]
+		queue 2 (conf): 
+		Emisor(0):bitrecibido = 1
+
+268:	proc  0 (Emisor:1) nose.pml:30 (state 6)	[contRec = (contRec+1)]
+		queue 1 (env): 
+		Emisor(0):contRec = 3
+
+269:	proc  3 (Receptor:1) nose.pml:65 (state 7)	[.(goto)]
+
+270:	proc  3 (Receptor:1) nose.pml:67 (state 11)	[.(goto)]
+
+271:	proc  0 (Emisor:1) nose.pml:32 (state 7)	[((contRec==3))]
+
+272:	proc  0 (Emisor:1) nose.pml:33 (state 8)	[bitenvio = (1-bitenvio)]
+		queue 1 (env): 
+		Emisor(0):bitenvio = 0
+
+273:	proc  0 (Emisor:1) nose.pml:34 (state 9)	[elems = (elems+1)]
+		elems = 4
+
+274:	proc  0 (Emisor:1) nose.pml:35 (state 10)	[contRec = 0]
+		queue 1 (env): 
+		Emisor(0):contRec = 0
+
+275:	proc  0 (Emisor:1) nose.pml:38 (state 14)	[.(goto)]
+		queue 1 (env): 
+
+276:	proc  0 (Emisor:1) nose.pml:44 (state 22)	[.(goto)]
+		queue 1 (env): 
+
+277:	proc  0 (Emisor:1) nose.pml:46 (state 25)	[.(goto)]
+		queue 1 (env): 
+
+278:	proc  0 (Emisor:1) nose.pml:48 (state 29)	[.(goto)]
+		queue 1 (env): 
+
+279:	proc  0 (Emisor:1) nose.pml:24 (state 1)	[((elems==4))]
+		queue 1 (env): 
+
+280:	proc  0 (Emisor:1) nose.pml:24 (state 2)	[goto transferirOK]
+		queue 1 (env): 
+
+listo 281:	proc  0 (Emisor:1) nose.pml:48 (state 31)	[printf('listo ')]
+		queue 1 (env): 
+
+282:	proc  0 (Emisor:1) nose.pml:49 (state 32)	[fallado = 1]
+		queue 1 (env): 
+		fallado = 1
+
+283:	proc  3 (Receptor:1) nose.pml:65 (state 8)	[((fallado==1))]
+
+284:	proc  2 (Receptor:1) nose.pml:65 (state 8)	[((fallado==1))]
+		queue 1 (env): 
+
+285:	proc  2 (Receptor:1) nose.pml:65 (state 9)	[goto recfalla]
+
+286:	proc  2 (Receptor:1) nose.pml:67 (state 13)	[(1)]
+
+287:	proc  3 (Receptor:1) nose.pml:65 (state 9)	[goto recfalla]
+
+288:	proc  3 (Receptor:1) nose.pml:67 (state 13)	[(1)]
+
+289:	proc  1 (Receptor:1) nose.pml:65 (state 8)	[((fallado==1))]
+
+290:	proc  1 (Receptor:1) nose.pml:65 (state 9)	[goto recfalla]
+
+290:	proc  3 (Receptor:1) terminates
+291:	proc  1 (Receptor:1) nose.pml:67 (state 13)	[(1)]
+
+291:	proc  2 (Receptor:1) terminates
+291:	proc  1 (Receptor:1) terminates
+291:	proc  0 (Emisor:1) terminates
+4 processes created
