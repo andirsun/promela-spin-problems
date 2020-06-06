@@ -71,7 +71,8 @@ active [ R ] proctype Receptor () {
 	
 	bit bitrecibido;
   bit bitanterior=1;
-  byte x; /*cualquier numero que vaya a recibir */
+  /*cualquier numero que vaya a recibir */
+	byte x; 
   
  	do
  		:: get((_pid-1),m)==0 ->
@@ -93,16 +94,23 @@ active [ R ] proctype Receptor () {
 		      fi	
 	      fi
 			fi
-	         	/*ultimo receptor*/
+	  	/*Si el elemento actual ya esta seteado, osea no esta vacio con 0*/
 		:: get((_pid-1),m)!=0 ->
-			
+			/* si ya todos los receptores leyeron el dato del archivo*/
 			if 	:: flag == R ->
+				/* y si el que esta entrando es el ultimo que leyo el dato*/
 				if :: idUltimo == _pid ->
+					/* aca debe ir el atomic ya que el receptor que debe confirmar solo debe ser 1, y no puedo permitir que se metan mas*/
 					atomic{
-
+						/* leo y saco el mensaje del canal*/
 						env ? MENS(x, bitrecibido);	
+						/* pongo eldato del archivo en 0 (mi forma para validar el ltl 4 sin crear mas variables)*/
+						file[elems]= 0;
+						/* crezco el indice para meter en los arreglos */
 						m++;
+						/* pongo la bandera que me dice que renceptores han leido en 0 de nuevo ya que voy a leer un archivo nuevo*/
 						flag = 0;
+						/* mando el mensaje de confirmacion */
 						conf ! CNF(bitrecibido);
 					}
 					::else -> skip;
@@ -129,6 +137,7 @@ active proctype demonio () {
 }
 */
 
+
 /* Propiedades sin el demonio */
 /* Si un elemento se Envia, finalmente llega a cualquier operador */
 ltl c1 { [] (env?[MENS(file[elems],_)]) -> X<>(conf?[CNF(_)])  }
@@ -142,5 +151,8 @@ ltl c3 { [](elems > 0) -> (get(0,elems) == get(1,elems) )   }
  */
 ltl c4 { [](env?[MENS(file[3],_)]) -> (file[2] == 0) }
 /* No necesariamente el receptor numero cero recibe siempre el elemento actual antes que el receptor numero 1*/
+ltl c5 { <>((get(0,elems)!=0) -> (get(0,elems) == 0)) }
+
+/* Propiedades con el demonio*/
 
 

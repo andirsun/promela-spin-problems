@@ -1,18 +1,11 @@
-never c1 {    /* !([] ((! (env?[MENS,file[elems],_])) || (<> (env?[CNF,_])))) */
+never c2 {    /* !([] (<> ((elems==4)))) */
 T0_init:
 	do
-	:: (! ((! (env?[MENS,file[elems],_]))) && ! ((env?[CNF,_]))) -> goto accept_S4
+	:: (! (((elems==4)))) -> goto accept_S4
 	:: (1) -> goto T0_init
 	od;
 accept_S4:
 	do
-	:: (! ((env?[CNF,_]))) -> goto accept_S4
-	od;
-}
-never c2 {    /* !(<> ((elems==5))) */
-accept_init:
-T0_init:
-	do
-	:: (! (((elems==5)))) -> goto T0_init
+	:: (! (((elems==4)))) -> goto accept_S4
 	od;
 }
