@@ -25,7 +25,7 @@ int elems = 0;
 int flag = 0;    
 /*indice de donde voy a guardar los nuevos datos en mi arreglo*/   
 byte m=0;
-byte contador=0;
+byte idUltimo;
 
 
 /* Metodos */
@@ -41,7 +41,6 @@ active proctype Emisor()
      :: elems == N -> goto transferirOK; 
      /* si aun no ha transferido todos los archivos*/
      :: elems < N -> 
-     	printf("hola");
      	/* Si ya envio el archico por el canar de escritura*/
       if :: env ! MENS(file[elems], bitenvio) ->
            /*entonces se queda esperando*/
@@ -83,6 +82,8 @@ active [ R ] proctype Receptor () {
 					/* si es un dato nuevo*/
 					if :: bitanterior != bitrecibido -> 
 						put((_pid-1),m,x);
+						/* le digo que ese proceso es el ultimo*/ 
+						idUltimo = _pid;
 						/*activa la bandera para decir que ya recibio ese archivo*/
 						bitanterior = bitrecibido
 						/* crece el numero de receptores que recibieron el archivo*/
@@ -96,14 +97,16 @@ active [ R ] proctype Receptor () {
 		:: get((_pid-1),m)!=0 ->
 			
 			if 	:: flag == R ->
-				atomic{
+				if :: idUltimo == _pid ->
+					atomic{
 
-					env ? MENS(x, bitrecibido);	
-					m++;
-					flag = 0;
-	        conf ! CNF(bitrecibido);
-	      }
-					::else -> skip;    	
+						env ? MENS(x, bitrecibido);	
+						m++;
+						flag = 0;
+						conf ! CNF(bitrecibido);
+					}
+					::else -> skip;
+				fi	    	
 		  fi    	
 		         		
          
