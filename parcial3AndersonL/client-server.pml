@@ -1,3 +1,4 @@
+/* Anderson Laverde Gracia*/
 /* numero de receptores */
 # define R 2
 /* número de reintentos antes de acabar */	
@@ -26,6 +27,8 @@ int flag = 0;
 /*indice de donde voy a guardar los nuevos datos en mi arreglo*/   
 byte m=0;
 byte idUltimo;
+/* contador de fallas*/
+byte cont = 0; 
 
 
 /* Metodos */
@@ -34,8 +37,6 @@ active proctype Emisor()
 {
   bit bitenvio=0;
   bit bitrecibido;/*no se inicializa por que no sabe que va a recibir*/
-  byte cont = 0;
-  
   do
   	 /* SI ya transfirio todos los archivos que que solo aumento elem cuando todos me respondieron */
      :: elems == N -> goto transferirOK; 
@@ -89,7 +90,7 @@ active [ R ] proctype Receptor () {
 						bitanterior = bitrecibido
 						/* crece el numero de receptores que recibieron el archivo*/
 						flag++;
-		              :: else
+		        :: else
 		         	
 		      fi	
 	      fi
@@ -116,9 +117,6 @@ active [ R ] proctype Receptor () {
 					::else -> skip;
 				fi	    	
 		  fi    	
-		         		
-         
-			
 		:: fallado == 1 -> goto recfalla 
 	od;
 	recfalla: skip
@@ -133,26 +131,33 @@ active proctype demonio () {
 		:: conf ? _ ,_ , _
 		:: env ? _ , _
 	od
-
 }
 */
 
 
+
+
+
+
 /* Propiedades sin el demonio */
 /* Si un elemento se Envia, finalmente llega a cualquier operador */
-ltl c1 { [] (env?[MENS(file[elems],_)]) -> X<>(conf?[CNF(_)])  }
+ltl c1 { [] (env?[MENS(file[0],_)]) -> <>(get(0,0) == file[0])  }
 /* llega un momento en el que todo el archivo se ha enviado, ya que siempre que mi elems arranca en 0 y los va entregando a los receptores, entonces en algun momento aumentara al ultimo indice del archivo*/
-ltl c2 { [](elems == 0) -> X<>(elems == 3) }
-/* Cualquier receptor recibe los elementos en orden */
+ltl c2 { [](elems == 3) -> X<>(get(1,elems)!=0) }
+/* Cualquier receptor recibe los elementos en orden, ya que comparo los arreglos internos*/
 ltl c3 { [](elems > 0) -> (get(0,elems) == get(1,elems) )   }
 /* Si el emisor va a enviar un elemento del archivo, todos los receptores ya recibieron los elementos anteriores.
 	explicacion : la unica forma de que el un elemento de mi archivo sea 0 es por que ya todos recibieron los archivos aterioires y antes de crecer el indice lo pongo en 0
 	asi emulo que cuando ya todos reciben un archivo lo quito del emisor
  */
 ltl c4 { [](env?[MENS(file[3],_)]) -> (file[2] == 0) }
-/* No necesariamente el receptor numero cero recibe siempre el elemento actual antes que el receptor numero 1*/
-ltl c5 { <>((get(0,elems)!=0) -> (get(0,elems) == 0)) }
+/* No necesariamente el receptor numero cero recibe siempre el elemento actual antes que el receptor numero 1
+ex : saco de la base de datos el un elemento actual del receptor 1 y es diferente de 0, por lo que tiene algo guardado, y si veo el mismo elemento actual en el recepto 0 pues no lo tiene, as
+*/
+ltl c5 { <>((get(1,elems)!=0) -> (get(0,elems) == 0)) }
 
-/* Propiedades con el demonio*/
-
+/* Si el sistema falla, el contador es igual a M (m´aximo n´umero de fallas): se debe cumplir. 
+ si mi elems no llega a 3, quire decir que no se paso todo el archivo y eso significa que el sistema fallo ya que el contador de falla se igualo a M
+*/
+ltl c6 { <>!(elems==3) -> (cont == M)}
 
