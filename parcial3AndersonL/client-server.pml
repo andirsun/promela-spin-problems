@@ -139,6 +139,7 @@ active proctype demonio () {
 
 
 
+
 /* Propiedades sin el demonio */
 /* Si un elemento se Envia, finalmente llega a cualquier operador */
 ltl c1 { [] (env?[MENS(file[0],_)]) -> <>(get(0,0) == file[0])  }
@@ -159,5 +160,5 @@ ltl c5 { <>((get(1,elems)!=0) -> (get(0,elems) == 0)) }
 /* Si el sistema falla, el contador es igual a M (m´aximo n´umero de fallas): se debe cumplir. 
  si mi elems no llega a 3, quire decir que no se paso todo el archivo y eso significa que el sistema fallo ya que el contador de falla se igualo a M
 */
-ltl c6 { <>!(elems==3) -> (cont == M)}
+ltl c6 { <>( (fallado> 0) -> (cont == m) )}
 

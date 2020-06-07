@@ -1,0 +1,57 @@
+never c1 {    /* !((! ([] (env?[MENS,file[0],_]))) || (<> ((data[((0*4)+0)]==file[0])))) */
+accept_init:
+T0_init:
+	do
+	:: (! (((data[((0*4)+0)]==file[0]))) && (env?[MENS,file[0],_])) -> goto T0_init
+	od;
+}
+never c2 {    /* !((! ([] ((elems==3)))) || (X (<> ((data[((1*4)+elems)]!=0))))) */
+accept_init:
+T0_init:
+	do
+	:: (((elems==3))) -> goto accept_S4
+	od;
+accept_S4:
+T0_S4:
+	do
+	:: (! (((data[((1*4)+elems)]!=0))) && ((elems==3))) -> goto accept_S4
+	od;
+}
+never c3 {    /* !((! ([] ((elems>0)))) || ((data[((0*4)+elems)]==data[((1*4)+elems)]))) */
+accept_init:
+T0_init:
+	do
+	:: (! (((data[((0*4)+elems)]==data[((1*4)+elems)]))) && ((elems>0))) -> goto accept_S3
+	od;
+accept_S3:
+T0_S3:
+	do
+	:: (((elems>0))) -> goto accept_S3
+	od;
+}
+never c4 {    /* !((! ([] (env?[MENS,file[3],_]))) || ((file[2]==0))) */
+accept_init:
+T0_init:
+	do
+	:: (! (((file[2]==0))) && (env?[MENS,file[3],_])) -> goto accept_S3
+	od;
+accept_S3:
+T0_S3:
+	do
+	:: ((env?[MENS,file[3],_])) -> goto accept_S3
+	od;
+}
+never c5 {    /* !(<> ((! ((data[((1*4)+elems)]!=0))) || ((data[((0*4)+elems)]==0)))) */
+accept_init:
+T0_init:
+	do
+	:: (! (((! ((data[((1*4)+elems)]!=0))) || ((data[((0*4)+elems)]==0))))) -> goto T0_init
+	od;
+}
+never c6 {    /* !(<> ((! ((fallado>0))) || ((cont==m)))) */
+accept_init:
+T0_init:
+	do
+	:: (! (((! ((fallado>0))) || ((cont==m))))) -> goto T0_init
+	od;
+}
